@@ -1,0 +1,34 @@
+//Exercise 8.24 solution 
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+int i; /* loop counter */
+int length; /* length of current string */
+char array[ 5 ][ 20 ]; /* 5 strings from user */
+
+/* read in 5 strings from user */
+for ( i = 0; i <= 4; i++ ) {
+printf( "Enter a string: " );
+scanf( "%s", &array[ i ][ 0 ] );
+} /* end for */
+
+printf( "\nThe strings ending with \"ED\" are:\n" );
+
+/* loop through 5 strings */
+for ( i = 0; i <= 4; i++ ) {
+
+/* find length of current string */
+length = strlen( &array[ i ][ 0 ] );
+
+/* print string if it ends with "ED" */
+if ( strcmp( &array[ i ][ length - 2 ], "ED" ) == 0 ) {
+printf( "%s\n", &array[ i ][ 0 ] );
+} /* end if */
+
+} /* end for */
+
+return 0; /* indicate successful termination */
+
+} /* end main */
