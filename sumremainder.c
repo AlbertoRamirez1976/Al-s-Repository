@@ -13,39 +13,37 @@
 
 int main()
 {
-     //Declaration
+     /*Declaration*/
      int num1, num2, sum, difference, product, quotient, remainder;
      char name[15];
 
-     //Opening statement
-
+     /*Opening Statement*/
      printf("Hello, welcome to my first lab!\n");
 
-     //Introduction
+     /*Introduction*/
      printf("What is your name? ");
      gets(name);
      printf("\n");
 
-     //Follow-up statement
-
+     /*Follow-up Statement*/
      printf("It is nice to meet you %s...\n", name);
      printf("\n");
 
-     printf("Let's get started by entering the first integer\n"); //prompt
+     printf("Let's get started by entering the first integer\n"); /*Prompt*/
      scanf( "%d", &num1 ); //read the first integer
      printf("\n");
 
-     printf("Now for your second integer\n"); //prompt
-     scanf( "%d", &num2 ); //read the second integer
+     printf("Now for your second integer\n"); /*Prompt*/
+     scanf( "%d", &num2 );/*Read the second integer*/
 
-     //Processing/Calculations
+     /*Processing*/
      sum = num1 + num2;
      difference = num1 - num2;
      product = num1 * num2;
      quotient = num1 / num2;
      remainder = num1 % num2;
 
-     //Output
+     /*Output*/
      printf("\n");
      printf("%s",name);
      printf("\n");
@@ -56,13 +54,12 @@ int main()
      printf("The remainder of your integers is %d\n", remainder);
      printf("\n");
 
-     //Closing statement
-
+     /*Closing statement*/
      printf("%s, I hope that you enjoyed my first program...you take care!\n", name);
 
      return 0;
 
-} //end function main
+} /*End function main*/
 
 /*
 Test Run 1

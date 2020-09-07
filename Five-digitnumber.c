@@ -1,4 +1,3 @@
-
 /****************************************************/
 /* Lab 1 Question 3                                 */
 /* Name : Alberto Ramirez                           */
@@ -15,53 +14,50 @@
 
 int main()
 {
-     //Declaration
-     int a, b, c, d, e, num;
+     /*Declaration*/
+     int Digit_1, Digit_2, Digit_3, Digit_4, Digit_5, num;
      char name[15];
 
-     //Opening statement
+     /*Opening Statement*/
      printf("Hello, welcome to my second lab!\n");
 
-     //Introduction
+     /*Introduction*/
      printf("What is your name? ");
      gets(name);
      printf("\n");
 
-     //Follow-up statement
-
+     /*Follow-up Statement*/
      printf("It is nice to meet you %s...\n", name);
      printf("\n");
-
      printf("Let's get started by entering one five-digit integer: \n"); //prompt
      scanf( "%d", &num); //read the five-digit integer
      printf("\n");
 
 
-     //Processing
-     e = num % 10;
+     /*Processing*/
+     Digit_5 = num % 10;
      num = num / 10;
-     d = num % 10;
+     Digit_4 = num % 10;
      num = num / 10;
-     c = num % 10;
+     Digit_3 = num % 10;
      num = num / 10;
-     b = num % 10;
+     Digit_2 = num % 10;
      num = num / 10;
-     a = num % 10;
+     Digit_1 = num % 10;
      num = num / 10;
 
-     //Output
+     /*Output*/
      printf("%s, your numbers separated by three spaces are as follows:", name );
      printf("\n");
-     printf("%d %d %d %d %d\n", a, b, c, d, e);
+     printf("%d %d %d %d %d\n", Digit_1, Digit_2, Digit_3, Digit_4, Digit_5);
      printf("\n");
 
-     //Closing statement
-
+     /*Closing Statement*/
      printf("%s, I hope that you enjoyed my second program...you take care!\n", name);
 
      return 0;
 
-} //end function main
+} /*End function main*/
 
 
 /*

@@ -14,38 +14,34 @@
 
 int main()
 {
-     //Declaration
+     /*Declaration*/
      int amount, twenty, ten, five, one;
      char name[15];
 
-     //Opening statement
+     /*Opening Statement*/
      printf("Hello, welcome to my sixth and final lab!\n");
 
-     //Introduction
+     /*Introduction*/
      printf("What is your name? ");
      gets(name);
      printf("\n");
 
-     //Follow-up statement
-
+     /*Follow-up Statement*/
      printf("It is nice to meet you %s...\n", name);
      printf("\n");
 
-
-     //Input from the user for the numerator of the first number
-     printf("Let's get started by entering a US Dollar amount: \n"); //prompt
-     scanf("%d", &amount); //read/store the input for the dollar amount
-
+     /*Prompt user for US Dollar amount*/
+     printf("Let's get started by entering a US Dollar amount: \n");
+     scanf("%d", &amount);/*Read and store US Dollar amount*/
      printf("\n");
 
-     //Processing
-     twenty = amount / 20; //Number of $20 bills needed
-     ten = (amount - (twenty * 20))/10;
-     five = (amount - (twenty * 20) - (ten * 10)) / 5;
-     one = (amount - (twenty * 20) - (ten * 10) - (five * 5));
+     /*Processing*/
+     twenty = amount / 20;/*Calculates the number of $20 bills needed*/
+     ten = (amount - (twenty * 20))/10;/*Calculates the number of $10 bills needed*/
+     five = (amount - (twenty * 20) - (ten * 10)) / 5;/*Calculates the number of $20 bills needed*/
+     one = (amount - (twenty * 20) - (ten * 10) - (five * 5));/*Calculates the number of $20 bills needed*/
 
-
-     //Output
+     /*Output*/
      printf("\n The number of $20 bills you will require are: %d\n", twenty);
      printf("\n");
      printf("\n The number of $10 bills you will require are: %d\n", ten);
@@ -55,13 +51,12 @@ int main()
      printf("\n The number of $1 bills you will require are: %d\n", one);
      printf("\n");
 
-     //Closing statement
-
+     /*Closing Statement*/
      printf("%s, I hope that you enjoyed my final program...you take care!\n", name);
 
      return 0;
 
-} //end function main
+} /*End function main*/
 
 /*
 

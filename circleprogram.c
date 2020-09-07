@@ -1,54 +1,57 @@
+/****************************************************/
+/* Lab 1 Question 4                                 */
+/* Name : Alberto Ramirez                           */
+/* Student ID : 1186065                             */
+/* Date: 09/6/20                                    */
+/* This Program finds the diameter, area, and       */
+/* circumference of a circle                        */
+/*                                                  */
+/****************************************************/
+
 #include<stdio.h>
 
 int main()
 {
-     //Declaration
+     /*Declaration*/
      int circle_radius;
      float PI=3.14159, circle_diameter, circle_area, circle_circumf;
      char name[15];
 
-     //Opening statement
+     /*Opening Statement*/
      printf("Hello, welcome to my third lab!\n");
 
-     //Introduction
+     /*Introduction*/
      printf("What is your name? ");
      gets(name);
      printf("\n");
 
-     //Follow-up statement
-
+     /*Follow-up Statement*/
      printf("It is nice to meet you %s...\n", name);
      printf("\n");
 
-
-     //Input from the user for the circle's radius
-     printf("Let's get started by entering the radius of a circle: \n"); //prompt
-     scanf("%d", &circle_radius); //read/store the input for the circle's radius
-
+     /*Input from the user*/
+     printf("Let's get started by entering the radius of a circle: \n");  /*Prompt*/
+     scanf("%d", &circle_radius);  /*read and store to variable*/
      printf("\n");
 
-     //Processing
-      //Calculations for the circle's diameter
-     circle_diameter = 2 * circle_radius;
-     //Calculations for the circle's area
-     circle_area = PI * circle_radius * circle_radius;
-     //Calculations for the circle's circumference
-     circle_circumf = 2 * PI * circle_radius;
+     /*Processing*/
+     circle_diameter = 2 * circle_radius;/*Calculation for diameter*/
+     circle_area = PI * circle_radius * circle_radius;/*Calculation for area*/
+     circle_circumf = 2 * PI * circle_radius;/*Calculation for circumference*/
 
-     //Output
+     /*Output*/
      printf("%s, The radius of your circle is: %d\n", name, circle_radius);
      printf("The diameter of your circle is: %5.5f\n", circle_diameter);
      printf("The area of your circle is: %5.5f\n", circle_area);
      printf("The circumference of your circle is: %5.5f\n", circle_circumf);
      printf("\n");
 
-     //Closing statement
-
+     /*Closing Statement*/
      printf("%s, I hope that you enjoyed my third program...you take care!\n", name);
 
      return 0;
 
-} //end function main
+} /*End function main*/
 
 /*
 

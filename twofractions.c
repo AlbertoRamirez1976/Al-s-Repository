@@ -11,60 +11,55 @@
 
 int main()
 {
-     //Declaration
-     int a, b, c, d, x, y;
+     /*Declaration*/
+     int Num_1, Denom_1, Num_2, Denom_2, x, y;
      char name[15];
 
-     //Opening statement
+     /*Opening Statement*/
      printf("Hello, welcome to my fourth lab!\n");
 
-     //Introduction
+     /*Introduction*/
      printf("What is your name? ");
      gets(name);
      printf("\n");
 
-     //Follow-up statement
-
+     /*Follow-up Statement*/
      printf("It is nice to meet you %s...\n", name);
      printf("\n");
 
+     /*Prompt user input for the first numerator*/
+     printf("Let's get started by entering the numerator for the first number: \n");
+     scanf("%d", &Num_1);/*Read and store the first numerator*/
 
-     //Input from the user for the numerator of the first number
-     printf("Let's get started by entering the numerator for the first number: \n"); //prompt
-     scanf("%d", &a); //read/store the input for the first numerator
+     /*Prompt user input for the first denominator*/
+     printf("Next, enter the denominator for the first number: \n");
+     scanf("%d", &Denom_1);/*Read and store the first denominator*/
 
-     //Input from the user for the denominator of the first number
-     printf("Next, enter the denominator for the first number: \n"); //prompt
-     scanf("%d", &b); //read/store the input for the first denominator
+     /*Prompt user input for the second numerator*/
+     printf("Then enter the numerator for the second number: \n");
+     scanf("%d", &Num_2);/*Read and store the second numerator*/
 
-     //Input from the user for the numerator of the second number
-     printf("Then enter the numerator for the second number: \n"); //prompt
-     scanf("%d", &c); //read/store the input for the second numerator
-
-     //Input from the user for the denominator of the second number
-     printf("Finally, enter the denominator for the second number: \n"); //prompt
-     scanf("%d", &d); //read/store the input for the second denominator
-
+     /*Prompt user input for the second denominator*/
+     printf("Finally, enter the denominator for the second number: \n");
+     scanf("%d", &Denom_2);/*Read and store the second denominator*/
      printf("\n");
 
-     //Processing
-     x = (a + c); //x represents the "x" axis and numerators for this program
-     y = (b + d); //y represents the "y" axis and denominators for this program
+     /*Processing*/
+     x = (Num_1 + Num_2);/*Read and store the first fraction*/
+     y = (Denom_1 + Denom_2);/*Read and store the second fraction*/
 
-
-     //Output
-     printf("%s,The fractions you entered are as follows: %d/%d and %d/%d\n", name, a, b, c, d);
+     /*Output*/
+     printf("%s,The fractions you entered are as follows: %d/%d and %d/%d\n", name, Num_1, Denom_1, Num_2, Denom_2);
      printf("\n");
      printf("The sum of your fraction is: %d/%d\n", x, y);
      printf("\n");
 
-     //Closing statement
-
+     /*Closing Statement*/
      printf("%s, I hope that you enjoyed my third program...you take care!\n", name);
 
      return 0;
 
-} //end function main
+}  /*End function main*/
 
 /*
 
