@@ -18,25 +18,24 @@
 
 int main()
 {
-     /*Declaration*/
+     //Declaration
      int pennies, nickels, dimes, quarters, cents, dollars;
      char name[4];
 
-     /*Opening Statement*/
+     //Opening Statement
      printf("Hello, welcome to my HW lab!\n");
      printf("\n");
 
-
-     /*Introduction*/
+     //Introduction
      printf("What are the first, middle, and last initials of your full-name? (i.e., AER)\n");
      gets(name);
      printf("\n");
 
-     /*Follow-up Statement*/
+     //Follow-up Statement
      printf("It is nice to meet you %s, let's see what your coins are worth.\n", name);
      printf("\n");
 
-     /*Prompt user for amount*/
+     //Data/Input/Prompt user for coin information
      printf("Please enter the number of quarters: ");
      scanf("%d", &quarters);/*Read and store amount of quarters*/
      printf("Please enter the number of dimes:    ");
@@ -47,12 +46,12 @@ int main()
      scanf("%d", &pennies);/*Read and store amount of pennies*/
      printf("\n");
 
-     /*Processing*/
+     //Calculations/Processing
      cents = quarters * 25 + dimes * 10 + nickels * 5 + pennies * 1;/*Constants identified and it converts the individual quantities to cents*/
      dollars = cents / 100;/*Converts the individual quantities of cents to total dollars*/
      cents = cents % 100;/*Converts the individual quantities of cents to total cents*/
 
-     /*Output*/
+     //Output
      printf("The number of quarters is: %d\n", quarters);
      printf("The number of dimes is:    %d\n", dimes);
      printf("The number of nickels is:  %d\n", nickels);
@@ -61,12 +60,12 @@ int main()
      printf("Your coins are worth $%.2d.%.2d cents. ", dollars, cents);
      printf("\n");
 
-     /*Closing Statement*/
+     //Closing Statement
      printf("\nI hope that you enjoyed my HW program...you take care!\n ");
 
      return 0;
 
-} /*End function main*/
+} //End function main
 
 /*
 
