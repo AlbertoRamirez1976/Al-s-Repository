@@ -150,3 +150,99 @@ int main()
      return 0;
 
 } /*End function main*/
+
+/*
+
+Test Run
+
+Hello, welcome to my second HW lab!
+
+What is your name?
+Vanessa
+
+It is nice to meet you Vanessa!
+
+Vanessa Let's get started with your five stock picks..
+
+Please enter your five stocks: IBM ORACLE SUNMICRO LINKSYS CISCO
+Please enter the number of stock shares for each stock: 155 375 350 85 50
+Please enter the buy price: 15.33 11.77 27.55 25.35 45.36
+Please enter the current price: 13.33 12.25 35.75 23.34 50.86
+Please enter the yearly fee: 5.00 3.50 12.25 6.00 1.50
+
+********************************************************
+                         Stock 1
+********************************************************
+
+The stock name is:               IBM
+The number of shares for IBM is: 155
+The buy price for  IBM is:       $15.33
+The current price for IBM is:    $13.33
+The yearly fee for IBM is:       $5.00
+The initial stock cost is:       $2376.15
+The current stock cost is:       $2066.15
+Your current profits are:        $-315.00
+
+********************************************************
+                         Stock 2
+********************************************************
+
+The stock name is:                  ORACLE
+The number of shares for ORACLE is: 375
+The buy price for  ORACLE is:       $11.77
+The current price for ORACLE is:    $12.25
+The yearly fee for ORACLE is:       $3.50
+The initial stock cost is:          $4413.75
+The current stock cost is:          $4593.75
+Your current profits are:           $176.50
+
+********************************************************
+                         Stock 3
+********************************************************
+
+The stock name is:                    SUNMICRO
+The number of shares for SUNMICRO is: 350
+The buy price for  SUNMICRO is:       $27.55
+The current price for SUNMICRO is:    $35.75
+The yearly fee for SUNMICRO is:       $12.25
+The initial stock cost is:            $9642.50
+The current stock cost is:            $12512.50
+Your current profits are:             $2857.75
+
+********************************************************
+                         Stock 4
+********************************************************
+
+The stock name is:                   LINKSYS
+The number of shares for LINKSYS is:  85
+The buy price for  LINKSYS is:       $25.35
+The current price for LINKSYS is:    $23.34
+The yearly fee for LINKSYS is:       $6.00
+The initial stock cost is:           $2154.75
+The current stock cost is:           $1983.90
+Your current profits are:            $-176.85
+
+********************************************************
+                         Stock 5
+********************************************************
+
+The stock name is:                 CISCO
+The number of shares for CISCO is:  50
+The buy price for  CISCO is:       $45.36
+The current price for CISCO is:    $50.86
+The yearly fee for CISCO is:       $1.50
+The initial stock cost is:         $2268.00
+The current stock cost is:         $2543.00
+Your current profits are:          $273.50
+
+********************************************************
+                         Total Profits
+********************************************************
+
+The total profits for all five stocks is: $2815.90
+
+
+I hope that you enjoyed my second HW program...you take care!
+
+
+*/
