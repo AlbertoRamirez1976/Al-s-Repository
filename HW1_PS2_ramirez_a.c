@@ -98,7 +98,7 @@ int main()
      curCost3 = numShare3 * curPrice3;/*calculates current stock cost*/
      Prof3 = curCost3 - iniCost3 - yrFee3;/*calculates profits*/
      printf("The initial stock cost is:       $%3.2f\n", iniCost3);
-     printf("The current stock cost is:       $%3.2f\n", curCost3;
+     printf("The current stock cost is:       $%3.2f\n", curCost3);
      printf("Your current profits are:        $%3.2f\n", Prof3);
      printf("\n");
      printf("********************************************************\n");
