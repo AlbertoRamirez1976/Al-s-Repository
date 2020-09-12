@@ -71,7 +71,7 @@ int main()
      printf("                         Stock 2                        \n");
      printf("********************************************************\n");
      printf("\n");
-     printf("The stock name is:               %s\n",stock2);
+     printf("The stock name is:                  %s\n",stock2);
      printf("The number of shares for %s is:%4d\n",stock2,numShare2);
      printf("The buy price for  %s is:       $%3.2f\n",stock2,buyPrice2);
      printf("The current price for %s is:    $%3.2f\n",stock2,curPrice2);
@@ -80,15 +80,15 @@ int main()
      iniCost2 = numShare2 * buyPrice2;/*calculates initial stock cost*/
      curCost2 = numShare2 * curPrice2;/*calculates current stock cost*/
      Prof2 = curCost2 - iniCost2 - yrFee2;/*calculates profits*/
-     printf("The initial stock cost is:       $%3.2f\n", iniCost2);
-     printf("The current stock cost is:       $%3.2f\n", curCost2);
-     printf("Your current profits are:        $%3.2f\n", Prof2);
+     printf("The initial stock cost is:          $%3.2f\n", iniCost2);
+     printf("The current stock cost is:          $%3.2f\n", curCost2);
+     printf("Your current profits are:           $%3.2f\n", Prof2);
      printf("\n");
      printf("********************************************************\n");
      printf("                         Stock 3                        \n");
      printf("********************************************************\n");
      printf("\n");
-     printf("The stock name is:               %s\n",stock3);
+     printf("The stock name is:                    %s\n",stock3);
      printf("The number of shares for %s is:%4d\n",stock3,numShare3);
      printf("The buy price for  %s is:       $%3.2f\n",stock3,buyPrice3);
      printf("The current price for %s is:    $%3.2f\n",stock3,curPrice3);
@@ -97,15 +97,15 @@ int main()
      iniCost3 = numShare3 * buyPrice3;/*calculates initial stock cost*/
      curCost3 = numShare3 * curPrice3;/*calculates current stock cost*/
      Prof3 = curCost3 - iniCost3 - yrFee3;/*calculates profits*/
-     printf("The initial stock cost is:       $%3.2f\n", iniCost3);
-     printf("The current stock cost is:       $%3.2f\n", curCost3);
-     printf("Your current profits are:        $%3.2f\n", Prof3);
+     printf("The initial stock cost is:            $%3.2f\n", iniCost3);
+     printf("The current stock cost is:            $%3.2f\n", curCost3);
+     printf("Your current profits are:             $%3.2f\n", Prof3);
      printf("\n");
      printf("********************************************************\n");
      printf("                         Stock 4                        \n");
      printf("********************************************************\n");
      printf("\n");
-     printf("The stock name is:               %s\n",stock4);
+     printf("The stock name is:                   %s\n",stock4);
      printf("The number of shares for %s is:%4d\n",stock4,numShare4);
      printf("The buy price for  %s is:       $%3.2f\n",stock4,buyPrice4);
      printf("The current price for %s is:    $%3.2f\n",stock4,curPrice4);
@@ -114,16 +114,16 @@ int main()
      iniCost4 = numShare4 * buyPrice4;/*calculates initial stock cost*/
      curCost4 = numShare4 * curPrice4;/*calculates current stock cost*/
      Prof4 = curCost4 - iniCost4 - yrFee4;/*calculates profits*/
-     printf("The initial stock cost is:       $%3.2f\n", iniCost4);
-     printf("The current stock cost is:       $%3.2f\n", curCost4);
-     printf("Your current profits are:        $%3.2f\n", Prof4);
+     printf("The initial stock cost is:           $%3.2f\n", iniCost4);
+     printf("The current stock cost is:           $%3.2f\n", curCost4);
+     printf("Your current profits are:            $%3.2f\n", Prof4);
      printf("\n");
      printf("********************************************************\n");
      printf("                         Stock 5                        \n");
      printf("********************************************************\n");
      printf("\n");
-     printf("The stock name is:               %s\n",stock5);
-     printf("The number of shares for %s is:%4d\n",stock1,numShare5);
+     printf("The stock name is:                 %s\n",stock5);
+     printf("The number of shares for %s is:%4d\n",stock5,numShare5);
      printf("The buy price for  %s is:       $%3.2f\n",stock5,buyPrice5);
      printf("The current price for %s is:    $%3.2f\n",stock5,curPrice5);
      printf("The yearly fee for %s is:       $%3.2f\n",stock5,yrFee5);
@@ -131,9 +131,9 @@ int main()
      iniCost5 = numShare5 * buyPrice5;/*calculates initial stock cost*/
      curCost5 = numShare5 * curPrice5;/*calculates current stock cost*/
      Prof5 = curCost5 - iniCost5 - yrFee5;/*calculates profits*/
-     printf("The initial stock cost is:       $%3.2f\n", iniCost5);
-     printf("The current stock cost is:       $%3.2f\n", curCost5);
-     printf("Your current profits are:        $%3.2f\n", Prof5);
+     printf("The initial stock cost is:         $%3.2f\n", iniCost5);
+     printf("The current stock cost is:         $%3.2f\n", curCost5);
+     printf("Your current profits are:          $%3.2f\n", Prof5);
      printf("\n");
      printf("********************************************************\n");
      printf("                         Total Profits                  \n");
@@ -141,7 +141,7 @@ int main()
      printf("\n");
      /*Processing*/
      ProfT = Prof1 + Prof2 + Prof3 + Prof4 + Prof5;/*calculates total profits for all five stocks*/
-     printf("The total profits for all five stocks is:     $%3.2f\n",ProfT);
+     printf("The total profits for all five stocks is: $%3.2f\n",ProfT);
      printf("\n");
 
      /*Closing Statement*/
