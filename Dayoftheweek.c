@@ -57,8 +57,12 @@ Enter a number between 1 to 7: 3
 You entered 3, that's a Wednesday.
 
 Test run 2
+Enter a number between 1 to 7: 6
+You entered 6, that's a Saturday.
 
-
+Test run 3
+Enter a number between 1 to 7: 1
+You entered 1, that's a Monday.
 
 */
 
