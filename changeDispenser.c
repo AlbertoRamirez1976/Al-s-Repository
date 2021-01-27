@@ -45,7 +45,7 @@ void getPaid(float* paid, float* due)
     printf("Welcome to the Change Dispenser Program\n");
     printf("\nEnter the amount paid in dollars: \n");/* Get user input for how much is paid */
     scanf("%f", paid);/* Assigns user input for how much paid to variable paid */
-    printf("Enter the amount due in dollars: \n");/* Get user input for how much is due */
+    printf("\nEnter the amount due in dollars: \n");/* Get user input for how much is due */
     scanf("%f", due);/* Assigns user input for how much is due to variable due */
 
     /* Conditional statement */
@@ -70,21 +70,21 @@ void makeChange(float paid, float due, int* dollar, int* qtr, int* dime, int* nk
     float temp2 = change - *dollar;/* Temporary value */
     int decimals = temp2 * 100;/* Calculates decimal equivalent */
 
-    /* Contional Statement to determine vale of quarters */
+    /* Contional Statement to determine value of quarters */
     if (decimals >= 25)
     {
         *qtr = decimals / 25;
         decimals = decimals % 25;
     }
 
-    /* Contional Statement to determine vale of dimes */
+    /* Contional Statement to determine value of dimes */
     if (decimals >= 10)
     {
         *dime = decimals / 10;
         decimals = decimals % 10;
     }
 
-    /* Contional Statement to determine vale of nickels */
+    /* Contional Statement to determine value of nickels */
     if (decimals >= 5)
     {
         *nkl = decimals / 5;
@@ -101,11 +101,11 @@ void printResult(float paid, float due, int dollar, int qtr, int dime, int nkl, 
 {
 
     /* Displays results for all amounts*/
-    printf("\nTotal amount paid: %f\n", paid);
-    printf("\nTotal amount due: %f\n", due);
-    printf("\nChange in terms of dollars: %d\n", dollar);
-    printf("\nChange in terms of quarters: %d\n", qtr);
-    printf("\nChange in terms  of dimes: %d\n", dime);
-    printf("\nChange in terms  of nickels: %d\n", nkl);
-    printf("\nChange in terms of pennies: %d\n", pen);
+    printf("\nTotal amount paid in dollars is: $%.2f\n", paid);
+    printf("\nTotal amount due in dollars is: $%.2f\n", due);
+    printf("\nYour change in terms of dollars is: $%d", dollar);
+    printf(",%d quarters", qtr);
+    printf(",%d dimes", dime);
+    printf(",%d nickels", nkl);
+    printf(",and %d pennies.\n", pen);
 }
