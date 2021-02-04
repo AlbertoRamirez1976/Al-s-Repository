@@ -2,7 +2,7 @@
 /* Name : Alberto Ramirez                           */
 /* Student ID : 1186065                             */
 /* Homework 1 Program Set 1                         */
-/* Date: 09/10/20                                   */
+/* Date: 2/3/21                                     */
 /* This Program prompts user for three input        */
 /* characters which are the user's initials         */
 /* and displays them in a welcoming message. Then   */
@@ -22,166 +22,125 @@ int main()
      int pennies, nickels, dimes, quarters, cents, dollars;
      char name[4];
 
-     //Opening Statement
-     printf("Hello, welcome to my HW lab!\n");
-     printf("\n");
-
-     //Introduction
-     printf("What are the first, middle, and last initials of your full-name? (i.e., AER)\n");
+     //Data/input
+     printf("Enter your initials, first, middle, and last: ");
      gets(name);
+     printf("\nHello %s, let's see what your coins are worth.", name);
      printf("\n");
 
-     //Follow-up Statement
-     printf("It is nice to meet you %s, let's see what your coins are worth.\n", name);
+     //Data/input
+     printf("Enter number of quarters: ");
+     scanf("%d", &quarters);//Read and store amount of quarters
+     printf("Enter number of dimes:    ");
+     scanf("%d", &dimes);//Read and store amount of dimes
+     printf("Enter number of nickels:  ");
+     scanf("%d", &nickels);//Read and store amount of nickels
+     printf("Enter number of pennies:  ");
+     scanf("%d", &pennies);//Read and store amount of pennies
      printf("\n");
 
-     //Data/Input/Prompt user for coin information
-     printf("Please enter the number of quarters: ");
-     scanf("%d", &quarters);/*Read and store amount of quarters*/
-     printf("Please enter the number of dimes:    ");
-     scanf("%d", &dimes);/*Read and store amount of dimes*/
-     printf("Please enter the number of nickels:  ");
-     scanf("%d", &nickels);/*Read and store amount of nickels*/
-     printf("Please enter the number of pennies:  ");
-     scanf("%d", &pennies);/*Read and store amount of pennies*/
-     printf("\n");
-
-     //Calculations/Processing
-     cents = quarters * 25 + dimes * 10 + nickels * 5 + pennies * 1;/*Constants identified and it converts the individual quantities to cents*/
-     dollars = cents / 100;/*Converts the individual quantities of cents to total dollars*/
-     cents = cents % 100;/*Converts the individual quantities of cents to total cents*/
+     //Processing/Calculations
+     cents = quarters * 25 + dimes * 10 + nickels * 5 + pennies * 1;//Constants identified and it converts the individual quantities to cents
+     dollars = cents / 100;//Converts the individual quantities of cents to total dollars
+     cents = cents % 100;//Converts the individual quantities of cents to total cents
 
      //Output
-     printf("The number of quarters is: %d\n", quarters);
-     printf("The number of dimes is:    %d\n", dimes);
-     printf("The number of nickels is:  %d\n", nickels);
-     printf("The number of pennies is:  %d\n", pennies);
+     printf("Number of quarters is: %d\n", quarters);
+     printf("Number of dimes is:    %d\n", dimes);
+     printf("Number of nickels is:  %d\n", nickels);
+     printf("Number of pennies is:  %d\n", pennies);
      printf("\n");
-     printf("Your coins are worth $%.2d.%.2d cents. ", dollars, cents);
+     printf("Your coins are worth %d dollars and %.2d cents. ", dollars, cents);
      printf("\n");
-
-     //Closing Statement
-     printf("\nI hope that you enjoyed my HW program...you take care!\n ");
 
      return 0;
 
-} //End function main
+}
 
-/*
+//Output
 
-Test Run 1
+//Test Run 1
+//
+//Enter your initials, first, middle, and last: JTK
+//
+//Hello JTK, let's see what your coins are worth.
+//Enter number of quarters: 4
+//Enter number of dimes:    0
+//Enter number of nickels:  0
+//Enter number of pennies:  0
+//
+//Number of quarters is: 4
+//Number of dimes is:    0
+//Number of nickels is:  0
+//Number of pennies is:  0
+//
+//Your coins are worth 1 dollars and 00 cents.
 
-Hello, welcome to my HW lab!
+//Test Run 2
+//
+//Enter your initials, first, middle, and last: RHT
+//
+//Hello RHT, let's see what your coins are worth.
+//Enter number of quarters: 0
+//Enter number of dimes:    10
+//Enter number of nickels:  0
+//Enter number of pennies:  0
+//
+//Number of quarters is: 0
+//Number of dimes is:    10
+//Number of nickels is:  0
+//Number of pennies is:  0
+//
+//Your coins are worth 1 dollars and 00 cents.
 
-What are the first, middle, and last initials of your full-name? (i.e., AER)
-JTK
+//Test Run 3
+//
+//Enter your initials, first, middle, and last: AER
+//
+//Hello AER, let's see what your coins are worth.
+//Enter number of quarters: 5
+//Enter number of dimes:    4
+//Enter number of nickels:  3
+//Enter number of pennies:  2
+//
+//Number of quarters is: 5
+//Number of dimes is:    4
+//Number of nickels is:  3
+//Number of pennies is:  2
+//
+//Your coins are worth 1 dollars and 82 cents.
 
-It is nice to meet you JTK, let's see what your coins are worth.
+//Test Run 4
+//
+//Enter your initials, first, middle, and last: CTV
+//
+//Hello CTV, let's see what your coins are worth.
+//Enter number of quarters: 7
+//Enter number of dimes:    8
+//Enter number of nickels:  5
+//Enter number of pennies:  4
+//
+//Number of quarters is: 7
+//Number of dimes is:    8
+//Number of nickels is:  5
+//Number of pennies is:  4
+//
+//Your coins are worth 2 dollars and 84 cents.
 
-Please enter the number of quarters: 4
-Please enter the number of dimes:    0
-Please enter the number of nickels:  0
-Please enter the number of pennies:  0
+//Test Run 5
+//
+//Enter your initials, first, middle, and last: QUK
+//
+//Hello QUK, let's see what your coins are worth.
+//Enter number of quarters: 6
+//Enter number of dimes:    9
+//Enter number of nickels:  2
+//Enter number of pennies:  5
+//
+//Number of quarters is: 6
+//Number of dimes is:    9
+//Number of nickels is:  2
+//Number of pennies is:  5
+//
+//Your coins are worth 2 dollars and 55 cents.
 
-The number of quarters is: 4
-The number of dimes is:    0
-The number of nickels is:  0
-The number of pennies is:  0
-
-Your coins are worth $01.00 cents.
-
-I hope that you enjoyed my HW program...you take care!
-
-Test Run 2
-
-Hello, welcome to my HW lab!
-
-What are the first, middle, and last initials of your full-name? (i.e., AER)
-RHT
-
-It is nice to meet you RHT, let's see what your coins are worth.
-
-Please enter the number of quarters: 0
-Please enter the number of dimes:    10
-Please enter the number of nickels:  0
-Please enter the number of pennies:  0
-
-The number of quarters is: 0
-The number of dimes is:    10
-The number of nickels is:  0
-The number of pennies is:  0
-
-Your coins are worth $01.00 cents.
-
-I hope that you enjoyed my HW program...you take care!
-
-Test Run 3
-
-Hello, welcome to my HW lab!
-
-What are the first, middle, and last initials of your full-name? (i.e., AER)
-VAN
-
-It is nice to meet you VAN, let's see what your coins are worth.
-
-Please enter the number of quarters: 125
-Please enter the number of dimes:    95
-Please enter the number of nickels:  35
-Please enter the number of pennies:  13
-
-The number of quarters is: 125
-The number of dimes is:    95
-The number of nickels is:  35
-The number of pennies is:  13
-
-Your coins are worth $42.63 cents.
-
-I hope that you enjoyed my HW program...you take care!
-
-Test Run 4
-
-Hello, welcome to my HW lab!
-
-What are the first, middle, and last initials of your full-name? (i.e., AER)
-JON
-
-It is nice to meet you JON, let's see what your coins are worth.
-
-Please enter the number of quarters: 34
-Please enter the number of dimes:    78
-Please enter the number of nickels:  97
-Please enter the number of pennies:  33
-
-The number of quarters is: 34
-The number of dimes is:    78
-The number of nickels is:  97
-The number of pennies is:  33
-
-Your coins are worth $21.48 cents.
-
-I hope that you enjoyed my HW program...you take care!
-
-Test Run 5
-
-Hello, welcome to my HW lab!
-
-What are the first, middle, and last initials of your full-name? (i.e., AER)
-AER
-
-It is nice to meet you AER, let's see what your coins are worth.
-
-Please enter the number of quarters: 325
-Please enter the number of dimes:    123
-Please enter the number of nickels:  37
-Please enter the number of pennies:  13
-
-The number of quarters is: 325
-The number of dimes is:    123
-The number of nickels is:  37
-The number of pennies is:  13
-
-Your coins are worth $95.53 cents.
-
-I hope that you enjoyed my HW program...you take care!
-
-*/

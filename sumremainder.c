@@ -2,10 +2,10 @@
 /* Lab 1 Question 2                                 */
 /* Name : Alberto Ramirez                           */
 /* Student ID : 1186065                             */
-/* Date: 09/5/20                                    */
+/* Date: 2/3/21                                     */
 /* This Program allows the user to enter 2 integers */
-/* to find the Sum, Difference, Product, Quotient,  */
-/* and Remainder of the 2 numbers                   */
+/* to find the sum, product, difference, quotient,  */
+/* and remainder of the two numbers.                */
 /*                                                  */
 /****************************************************/
 
@@ -13,166 +13,76 @@
 
 int main()
 {
-     /*Declaration*/
+     //Declaration
      int num1, num2, sum, difference, product, quotient, remainder;
-     char name[15];
 
-     /*Opening Statement*/
-     printf("Hello, welcome to my first lab!\n");
+     //Data/input
+     printf("Enter two numbers: ");
+     scanf("%d %d", &num1, &num2 );
 
-     /*Introduction*/
-     printf("What is your name? ");
-     gets(name);
-     printf("\n");
-
-     /*Follow-up Statement*/
-     printf("It is nice to meet you %s...\n", name);
-     printf("\n");
-
-     printf("Let's get started by entering the first integer\n"); /*Prompt*/
-     scanf( "%d", &num1 ); //read the first integer
-     printf("\n");
-
-     printf("Now for your second integer\n"); /*Prompt*/
-     scanf( "%d", &num2 );/*Read the second integer*/
-
-     /*Processing*/
+     //Processing/Calculations
      sum = num1 + num2;
-     difference = num1 - num2;
      product = num1 * num2;
+     difference = num1 - num2;
      quotient = num1 / num2;
      remainder = num1 % num2;
 
-     /*Output*/
+     //Output
+     printf("The sum is %d\n", sum);
+     printf("The product is %d\n", product);
+     printf("The difference is %d\n", difference);
+     printf("The quotient is %d\n", quotient);
+     printf("The remainder is %d\n", remainder);
      printf("\n");
-     printf("%s",name);
-     printf("\n");
-     printf("The sum of your integers is %d\n", sum);
-     printf("The difference of your integers is %d\n", difference);
-     printf("The product your integers is %d\n", product);
-     printf("The quotient of your integers is %d\n", quotient);
-     printf("The remainder of your integers is %d\n", remainder);
-     printf("\n");
-
-     /*Closing statement*/
-     printf("%s, I hope that you enjoyed my first program...you take care!\n", name);
 
      return 0;
 
-} /*End function main*/
+}
 
-/*
-Test Run 1
+//Output
+//
+//Test Run 1
+//
+//Enter two numbers: 20 5
+//The sum is 25
+//The product is 100
+//The difference is 15
+//The quotient is 4
+//The remainder is 0
 
-Hello, welcome to my first lab!
-What is your name? Alex
+//Test Run 2
+//
+//Enter two numbers: 5 20
+//The sum is 25
+//The product is 100
+//The difference is -15
+//The quotient is 0
+//The remainder is 5
 
-It is nice to meet you Alex...
+//Test Run 3
+//
+//Enter two numbers: 13 7
+//The sum is 20
+//The product is 91
+//The difference is 6
+//The quotient is 1
+//The remainder is 6
 
-Let's get started by entering the first integer
-11
+//Test Run 4
+//
+//Enter two numbers: 7 8
+//The sum is 15
+//The product is 56
+//The difference is -1
+//The quotient is 0
+//The remainder is 7
 
-Now for your second integer
-3
-
-Alex
-The sum of your integers is 14
-The difference of your integers is 8
-The product your integers is 33
-The quotient of your integers is 3
-The remainder of your integers is 2
-
-Alex, I hope that you enjoyed my first program...you take care!
-
-Test Run 2
-
-Hello, welcome to my first lab!
-What is your name? Leslie
-
-It is nice to meet you Leslie...
-
-Let's get started by entering the first integer
-23
-
-Now for your second integer
-4
-
-Leslie
-The sum of your integers is 27
-The difference of your integers is 19
-The product your integers is 92
-The quotient of your integers is 5
-The remainder of your integers is 3
-
-Leslie, I hope that you enjoyed my first program...you take care!
-
-Test Run 3
-
-Hello, welcome to my first lab!
-What is your name? John
-
-It is nice to meet you John...
-
-Let's get started by entering the first integer
-33
-
-Now for your second integer
-6
-
-John
-The sum of your integers is 39
-The difference of your integers is 27
-The product your integers is 198
-The quotient of your integers is 5
-The remainder of your integers is 3
-
-John, I hope that you enjoyed my first program...you take care!
-
-Test Run 4
-
-Hello, welcome to my first lab!
-What is your name? Vanessa
-
-It is nice to meet you Vanessa...
-
-Let's get started by entering the first integer
-57
-
-Now for your second integer
-7
-
-Vanessa
-The sum of your integers is 64
-The difference of your integers is 50
-The product your integers is 399
-The quotient of your integers is 8
-The remainder of your integers is 1
-
-Vanessa, I hope that you enjoyed my first program...you take care!
-
-Test Run 5
-
-Hello, welcome to my first lab!
-What is your name? Tony
-
-It is nice to meet you Tony...
-
-Let's get started by entering the first integer
-87
-
-Now for your second integer
-5
-
-Tony
-The sum of your integers is 92
-The difference of your integers is 82
-The product your integers is 435
-The quotient of your integers is 17
-The remainder of your integers is 2
-
-Tony, I hope that you enjoyed my first program...you take care!
-
-*/
-
-
+//Test Run 5
+//
+//Enter two numbers: 2 8
+//The sum is 10
+//The product is 16
+//The difference is -6
+//The quotient is 0
+//The remainder is 2
 
