@@ -2,7 +2,7 @@
 /* Lab 2 Question 8                                 */
 /* Name : Alberto Ramirez                           */
 /* Student ID : 1186065                             */
-/* Date: 09/25/20                                   */
+/* Date: 2/20/21                                    */
 /* This Program displays the day of the week using  */
 /* a switch statement.                              */
 /****************************************************/
@@ -22,25 +22,25 @@ int main()
         switch (week)
         {
             case 1:
-                printf("You entered %d, that's a Monday.\n", week);
+                printf("You entered %d,that's Monday.\n", week);
                 break;
             case 2:
-                printf("You entered %d, that's a Tuesday.\n", week);
+                printf("You entered %d,that's Tuesday.\n", week);
                 break;
             case 3:
-                printf("You entered %d, that's a Wednesday.\n", week);
+                printf("You entered %d,that's Wednesday.\n", week);
                 break;
             case 4:
-                printf("You entered %d, that's a Thursday.\n", week);
+                printf("You entered %d,that's Thursday.\n", week);
                 break;
             case 5:
-                printf("You entered %d, that's a Friday.\n", week);
+                printf("You entered %d,that's Friday.\n", week);
                 break;
             case 6:
-                printf("You entered %d, that's a Saturday.\n", week);
+                printf("You entered %d,that's Saturday.\n", week);
                 break;
             case 7:
-                printf("You entered %d, that's a Sunday.\n", week);
+                printf("You entered %d,that's Sunday.\n", week);
                 break;
             default:
                 printf("Invalid, please enter a week number between 1-7.\n");
@@ -48,22 +48,29 @@ int main()
 
      return 0;
 
-} //End function main//
+}
 
-/*
 
-Test run 1
-Enter a number between 1 to 7: 3
-You entered 3, that's a Wednesday.
+//Output
+//
+//Test Run 1
+//
+//Enter a number between 1 to 7: 3
+//You entered 3,that's Wednesday.
 
-Test run 2
-Enter a number between 1 to 7: 6
-You entered 6, that's a Saturday.
 
-Test run 3
-Enter a number between 1 to 7: 1
-You entered 1, that's a Monday.
+//Output
+//
+//Test Run 2
+//
+//Enter a number between 1 to 7: 7
+//You entered 7,that's Sunday.
 
-*/
 
+//Output
+//
+//Test Run 3
+//
+//Enter a number between 1 to 7: 10
+//Invalid, please enter a week number between 1-7.
 

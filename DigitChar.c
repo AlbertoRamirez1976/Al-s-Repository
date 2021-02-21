@@ -2,7 +2,7 @@
 /* Lab 2 Question 4                                 */
 /* Name : Alberto Ramirez                           */
 /* Student ID : 1186065                             */
-/* Date: 09/24/20                                   */
+/* Date: 2/20/21                                    */
 /* This Program determines whether the user input   */
 /* is a digit 0-9 or a character A-Z, a-z and       */
 /* if it upper or lowercase.                        */
@@ -19,7 +19,7 @@ int main()
      printf("Enter any character: ");
      scanf("%c",&digitChar);
 
-     //if statements and output
+     //Decision statement and output
      if((digitChar>='a' && digitChar<='z'))
         {
             printf("Lowercase character was entered.\n");
@@ -35,22 +35,29 @@ int main()
 
      return 0;
 
-} //End function main//
+}
 
-/*
 
-Test run 1
-Enter any character: C
-Uppercase character was entered.
+//Output
+//
+//Test Run 1
+//
+//Enter any character: C
+//Uppercase character was entered.
 
-Test run 2
-Enter any character: b
-Lowercase character was entered.
 
-Test run 3
-Enter any character: 5
-A digit was entered.
+//Output
+//
+//Test Run 2
+//
+//Enter any character: b
+//Lowercase character was entered.
 
-*/
 
+//Output
+//
+//Test Run 3
+//
+//Enter any character: 5
+//A digit was entered.
 
