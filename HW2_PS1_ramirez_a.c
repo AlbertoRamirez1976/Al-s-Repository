@@ -2,290 +2,663 @@
 /* Name : Alberto Ramirez                            */
 /* Student ID : 1186065                              */
 /* Homework 2 Program Set 1                          */
-/* Date: 2/20/21                                     */
-/* This Program calculates the amount of tax due.    */
+/* Date: 10/01/20                                    */
+/* This Program calculates the expenses of traveling */
+/* from one city to another city.                    */
 /*****************************************************/
 
 #include<stdio.h>
-
+#include<stdlib.h>
+#include<strings.h>
 
 int main()
 {
-    int status;
-    int TI;
-    double singleTax, marriedjointTax, marriedseparateTax, headofHouseholdTax;
+     //Variable Declaration
+     int days, meals,roomCharges, hotelCharges, foodCharges, transpoCharges, totalCharges;
+     char sourceCity, sourceCity1[30], destinationCity, destinationCity1[30], modeofTranspo, modeofTranspo1[10], hotelType, hotelType1[10], foodType, foodType1[10];
 
-    //Input section with a menu with the use of a 'while' loop statement
-    while(status != 5)
-    {
-        printf("*********Menu*********************\n");
-        printf("1) Single\n");
-        printf("2) Married Filing Jointly\n");
-        printf("3) Married Filing Separately\n");
-        printf("4) Head of Household\n");
-        printf("5) Exit\n");
-        printf("**********************************\n");
+     printf("\n");
+     printf("\n");
+     printf("********************************************");
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("WELCOME TO THE TRIP EXPENSES CALCULATOR     ");
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("********************************************");
+     printf("\n");
+     getchar();
+     system("clear");
 
-        printf("\nEnter status: ");
-        scanf("%d", &status);
-        getchar();
+     //Data/Input/Prompt user for source city information
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("ENTER THE SOURCE CITY:\n\nB for Baltimore\n\nC for Chattanooga\n\nN for Nashville\n\nP for Pasadena\n\n");
+     printf("\n");
+     scanf("%c", &sourceCity);//Read and store destination city
+     getchar();
+     switch(sourceCity)
+     {
+         case 'B': case 'b': strcpy(sourceCity1, "Baltimore");
+         break;
+         case 'C': case 'c': strcpy(sourceCity1, "Chattanooga");
+         break;
+         case 'N': case 'n': strcpy(sourceCity1, "Nashville");
+         break;
+         case 'P': case 'p': strcpy(sourceCity1, "Pasadena");
+         break;
+     }
+     system("clear");
 
-        //Declaration statement to limit input to no more than the number 5.
-        if(status < 1 || status > 5)
-          {
-            printf("\nYou entered a wrong status. Program Exit...\n");
-            return 0;
-          }
-            if (status != 5)
-                {
-                 printf("Enter your taxable income: $");
-                 scanf("%d", &TI);
-                }
+     //Data/Input/Prompt user for destination city information
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("ENTER THE DESTINATION CITY:\n\nD for Denver\n\nM for Madison\n\nC for Clarksville\n\nK for Knoxville\n\n");
+     printf("\n");
+     getchar();
+     scanf("%c", &destinationCity);//Read and store destination city
+     switch(destinationCity)
+     {
+         case 'D': case 'd': strcpy(destinationCity1, "Denver");
+         break;
+         case 'M': case 'm': strcpy(destinationCity1, "Madison");
+         break;
+         case 'C': case 'c': strcpy(destinationCity1, "Clarksville");
+         break;
+         case 'K': case 'k': strcpy(destinationCity1, "Knoxville");
+         break;
+     }
+     system("clear");
 
-    //Processing/Calculations for single status
-    if(0 < TI && TI <= 24000)
-        {
-        singleTax = 0.15f * TI;
+     //Data/Input/Prompt user for mode of transportation information
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("ENTER THE MODE OF TRANSPORT:\n\nA for Air\n\nR for Train\n\nB for Bus\n\n");
+     printf("\n");
+     getchar();
+     scanf("%c", &modeofTranspo);//Read and store mode of transportation
+     switch(modeofTranspo)
+     {
+         case 'A': case 'a': strcpy(modeofTranspo1, "Air");
+         break;
+         case 'T': case 't': strcpy(modeofTranspo1, "Train");
+         break;
+         case 'B': case 'b': strcpy(modeofTranspo1, "Bus");
+         break;
+     }
+     system("clear");
 
-        }
-	else if(24000 < TI && TI <= 58000)
-          {
-          singleTax = 3600.00f + 0.28 * (TI - 24000);
+     //Data/Input/Prompt user for hotel information
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("ENTER THE TYPE OF HOTEL:\n\nF for Five Star\n\nT for Three Star\n\nO for Ordinary\n\n");
+     printf("\n");
+     getchar();
+     scanf("%c", &hotelType);//Read and store hotel type
+     switch(hotelType)
+     {
+         case 'F': case 'f': strcpy(hotelType1, "Five*");
+         break;
+         case 'T': case 't': strcpy(hotelType1, "Three*");
+         break;
+         case 'O': case 'o': strcpy(hotelType1, "Ordinary");
+         break;
+     }
+     system("clear");
 
-          }
-	    else if(58000 < TI && TI <= 121300)
-              {
-              singleTax = 13162.00f + 0.31 * (TI - 58000);
+     //Data/Input/Prompt user for meal information
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("ENTER THE TYPE OF FOOD:\n\nV for Veg\n\nN for Non-Veg\n\nC for Continental \n");
+     printf("\n");
+     getchar();
+     scanf("%c", &foodType);//Read and store food type
+     switch(foodType)
+     {
+         case 'V': case 'v': strcpy(foodType1, "Vegetarian");
+         break;
+         case 'N': case 'n': strcpy(foodType1, "Non-Veg");
+         break;
+         case 'C': case 'c': strcpy(foodType1, "Continental");
+         break;
+     }
+     system("clear");
 
-              }
-            else if(121300 < TI && TI <= 263750)
-              {
-       		  singleTax = 32738.50f + 0.36 * (TI - 121300);
-       		  }
-    		else if (263750 < (TI))
-              {
-      		  singleTax = 84020.50f + 0.396 * (TI - 263750);
-      		  }
-      		  else;
+     //Data/Input/Prompt user for number of meals to take in hotel
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("HOW MANY MEALS WOULD YOU LIKE TO TAKE IN THE HOTEL? \n");
+     printf("\n");
+     scanf("%d", &meals);//Read and store number of meals to take in hotel
+     getchar();
+     system("clear");
 
-    //Processing/Calculations for Married Filing Jointly status
-    if(0 < TI && TI <= 40100)
-        {
-        marriedjointTax = 0.15f * (TI);
-        }
-	else if(40100 < TI && TI <= 96900)
-          {
-          marriedjointTax = 6015.0f + 0.28 * (TI - 40100);
-          }
-	    else if(96900 < TI && TI <= 147700)
-              {
-              marriedjointTax = 21919.0f + 0.31 * (TI - 96900);
-              }
-            else if(147700 < TI && TI <= 263750)
-              {
-       		  marriedjointTax = 37667.0f + 0.36 * (TI - 147700);
-       		  }
-    		else if(263750 < (TI))
-              {
-      		  marriedjointTax = 79445.0f + 0.396 * (TI - 263750);
-      		  }
-      		  else;
+     //Data/Input/Prompt user for number of days of stay information
+     printf("\n");
+     printf("\n");
+     printf("\n");
+     printf("ENTER THE NUMBER OF DAYS OF STAY \n");
+     printf("\n");
+     scanf("%d", &days);//Read and store stay information
+     getchar();
+     system("clear");
 
-    //Processing/Calculations for Married Filing Separately status
-    if(0 < TI && TI <= 20050)
-        {
-        marriedseparateTax = 0.15f * (TI);
-        }
-	else if(20050 < TI && TI <= 48450)
-           {
-           marriedseparateTax = 3007.5f + 0.28 * (TI - 20050);
-           }
-	    else if(48050 < TI && TI <= 73850)
-               {
-               marriedseparateTax = 10959.5f + 0.31 * (TI - 48450);
-               }
-            else if(73850 < TI && TI <= 131875)
-               {
-       		   marriedseparateTax = 18833.5f + 0.36 * (TI - 73850);
-       		   }
-    		else if(131875 < (TI))
-               {
-      		   marriedseparateTax = 39722.5f + 0.396 * (TI - 131875);
-      		   }
-      		   else;
+     //Calculations for transportation
+     switch(sourceCity)
+     {
+		//Baltimore to Denver
+		case 'B': case 'b':
+			if(destinationCity == 'D' || destinationCity == 'd')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 5000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 2500;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 2000;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Baltimore to Madison
+		case 'B': case 'b':
+			if(destinationCity == 'M' || destinationCity == 'm')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 4000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 2000;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1000;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Baltimore to Knoxville
+		case 'B': case 'b':
+			if(destinationCity == 'K' || destinationCity == 'k')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 5000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 2500;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 2000;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Baltimore to Clarksville
+		case 'B': case 'b':
+			if(destinationCity == 'C' || destinationCity == 'c')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 2500;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 800;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1000;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Nashville to Denver
+		case 'N': case 'n':
+			if(destinationCity == 'D' || destinationCity == 'd')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 5000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 1500;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1400;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Nashville to Madison
+		case 'N': case 'n':
+			if(destinationCity == 'M' || destinationCity == 'm')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 2500;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 900;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 700;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Nashville to Knoxville
+		case 'N': case 'n':
+			if(destinationCity == 'K' || destinationCity == 'k')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 4000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 1500;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1000;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Nashville to Clarksville
+		case 'N': case 'n':
+			if(destinationCity == 'C' || destinationCity == 'c')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 4500;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 1700;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1300;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Chattanooga to Denver
+		case 'C': case 'c':
+			if(destinationCity == 'D' || destinationCity == 'd')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 2500;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 500;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 600;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Chattanooga to Madison
+		case 'C': case 'c':
+			if(destinationCity == 'M' || destinationCity == 'm')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 4000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 2300;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1300;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Chattanooga to Knoxville
+		case 'C': case 'c':
+			if(destinationCity == 'K' || destinationCity == 'k')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 4000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 1600;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1400;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Chattanooga to Clarksville
+		case 'C': case 'c':
+			if(destinationCity == 'C' || destinationCity == 'c')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 6000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 2000;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1700;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Pasadena to Denver
+		case 'P': case 'p':
+			if(destinationCity == 'D' || destinationCity == 'd')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 5000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 2000;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1400;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Pasadena to Madison
+		case 'P': case 'p':
+			if(destinationCity == 'M' || destinationCity == 'm')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 4500;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 1900;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1300;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Pasadena to Knoxville
+		case 'P': case 'p':
+			if(destinationCity == 'K' || destinationCity == 'k')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 3000;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 1200;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 800;
+						break;
+				}
+			}
+     }
+     switch(sourceCity)
+     {
+		//Pasadena to Clarksville
+		case 'P': case 'p':
+			if(destinationCity == 'C' || destinationCity == 'c')
+			{
+				switch(modeofTranspo)
+				{
+					case 'A': case 'a':
+						transpoCharges = 4500;
+						break;
+                    case 'T': case 't':
+						transpoCharges = 1700;
+						break;
+                    case 'B': case 'b':
+						transpoCharges = 1300;
+						break;
+				}
+			}
+     }
 
-    //Processing/Calculations for Head of Household status
-    if(0 < TI && TI <= 32150)
-        {
-        headofHouseholdTax = 0.15f * (TI);
-        }
-	else if(32150 < TI && TI <= 83050)
-            {
-            headofHouseholdTax = 4822.5f + 0.28 * (TI - 32150);
-            }
-	    else if(83050 < TI && TI <= 134500)
-                {
-                headofHouseholdTax = 19074.5f + 0.31 * (TI - 83050);
-                }
-            else if(134500 < TI && TI <= 263750)
-                {
-       		    headofHouseholdTax = 35074.0f + 0.36 * (TI - 134500);
-       		    }
-    		else if (263750 < (TI))
-                {
-      		    headofHouseholdTax = 81554.0f + 0.396 * (TI - 263750);
-      		    }
-      		    else;
+     //Calculations for room charges
+     switch(hotelType)
+     {
+		case 'F': case 'f'://Five Star
+            roomCharges = 500;
+            break;
+        case 'T': case 't'://Three Star
+            roomCharges = 300;
+            break;
+        case 'O': case 'o'://Ordinary
+            roomCharges = 100;
+            break;
+     }
 
-        //Switch statement for taxable income choices
-        switch(status)
-        {
-            case 1:
-                printf("The taxes owed are $%.2f\n", singleTax);
-                break;
-            case 2:
-                printf("The taxes owed are $%.2f\n", marriedjointTax);
-                break;
-            case 3:
-                 printf("The taxes owed are $%.2f\n", marriedseparateTax);
-                break;
-            case 4:
-                printf("The taxes owed are $%.2f\n", headofHouseholdTax);
-                break;
-            case 5:
-                printf("\nExit program...\n");
-                break;
-            default:
-                break;
-        }
-        printf("\n");
+     //Calculations for food charges
+     switch(foodType)
+     {
+		case 'V': case 'v'://Vegetarian
+            foodCharges = 15;
+            break;
+        case 'N': case 'n'://Non-Vegetarian
+            foodCharges = 30;
+            break;
+        case 'C': case 'c'://Continental
+            foodCharges = 10;
+            break;
+     }
+
+     //Formulas
+     roomCharges = (days * roomCharges);
+     foodCharges = (days * meals * foodCharges);
+     totalCharges = (transpoCharges + roomCharges + foodCharges);
+
+     //Output
+     printf("\n");
+     printf("\n");
+     printf("***************************************************");
+     printf("\n");
+     printf("\n");
+     printf("TOTAL EXPENSES TO TRAVEL from %s  to %s  ",sourceCity1,destinationCity1);
+     printf("\n");
+     printf("\n");
+     printf("***************************************************");
+     printf("\n");
+     printf("\n");
+     printf("TRANSPORTATION CHARGES (%s) = %d \n", modeofTranspo1, transpoCharges);
+     printf("\n");
+     printf("NUMBER OF DAYS OF STAY (%s) = %d \n", hotelType1, days);
+     printf("\n");
+     printf("NUMBER OF MEALS IN A DAY (%s) = %d \n", foodType1, meals);
+     printf("\n");
+     printf("ROOM CHARGES = %d \n", roomCharges);
+     printf("\n");
+     printf("FOOD CHARGES = %d \n", foodCharges);
+     printf("\n");
+     printf("\n");
+     printf("***************************************************");
+     printf("\n");
+     printf("\n");
+     printf("TOTAL CHARGES = %d", totalCharges);
+     printf("\n");
+     printf("\n");
+     printf("***************************************************");
+     printf("\n");
+
+     return 0;
+
+} //End function main
+
+/*
+Test Run 1
+
+TOTAL EXPENSES TO TRAVEL from Baltimore to Madison
+
+***************************************************
+
+TRANSPORTATION CHARGES (Train) = 2000
+
+NUMBER OF DAYS OF STAY (Ordinary) = 5
+
+NUMBER OF MEALS IN A DAY (Non-Veg) = 4
+
+ROOM CHARGES = 500
+
+FOOD CHARGES = 600
 
 
-    getchar();
-    getchar();
+***************************************************
 
-    }
-    return 0;
-}
+TOTAL CHARGES = 3100
 
-//Output
-//
-//Test Run 1
-//*********Menu*********************
-//1) Single
-//2) Married Filing Jointly
-//3) Married Filing Separately
-//4) Head of Household
-//5) Exit
-//**********************************
-//
-//Enter status: 1
-//Enter your taxable income: $50000
-//The taxes owed are $10880.00
+***************************************************
+
+Test Run 2
+
+TOTAL EXPENSES TO TRAVEL from l  to Knoxville
+
+***************************************************
+
+TRANSPORTATION CHARGES (Bus) = 800
+
+NUMBER OF DAYS OF STAY (Ordinary) = 6
+
+NUMBER OF MEALS IN A DAY (Continental) = 4
+
+ROOM CHARGES = 600
+
+FOOD CHARGES = 240
 
 
-//Output
-//
-//Test Run 2
-//*********Menu*********************
-//1) Single
-//2) Married Filing Jointly
-//3) Married Filing Separately
-//4) Head of Household
-//5) Exit
-//**********************************
-//
-//Enter status: 5
-//
-//Exit program...
+***************************************************
 
-//Output
-//
-//Test Run 3
-//*********Menu*********************
-//1) Single
-//2) Married Filing Jointly
-//3) Married Filing Separately
-//4) Head of Household
-//5) Exit
-//**********************************
-//
-//Enter status: a
-//
-//You entered a wrong status. Program Exit...
+TOTAL CHARGES = 1640
 
-//Output
-//
-//Test Run 4
-//*********Menu*********************
-//1) Single
-//2) Married Filing Jointly
-//3) Married Filing Separately
-//4) Head of Household
-//5) Exit
-//**********************************
-//
-//Enter status: 7
-//
-//You entered a wrong status. Program Exit...
+***************************************************
 
-//Output
-//
-//Test Run 5
-//*********Menu*********************
-//1) Single
-//2) Married Filing Jointly
-//3) Married Filing Separately
-//4) Head of Household
-//5) Exit
-//**********************************
-//
-//Enter status: 2
-//Enter your taxable income: $147701
-//The taxes owed are $37667.36
+Test Run 3
 
-//Output
-//
-//Test Run 6
-//*********Menu*********************
-//1) Single
-//2) Married Filing Jointly
-//3) Married Filing Separately
-//4) Head of Household
-//5) Exit
-//**********************************
-//
-//Enter status: 3
-//Enter your taxable income: $130875
-//The taxes owed are $39362.50
+TOTAL EXPENSES TO TRAVEL from   to Madison
 
-//Output
-//
-//Test Run 7
-//*********Menu*********************
-//1) Single
-//2) Married Filing Jointly
-//3) Married Filing Separately
-//4) Head of Household
-//5) Exit
-//**********************************
-//
-//Enter status: 4
-//Enter your taxable income: $262750
-//The taxes owed are $81244.00
+***************************************************
 
-//Output
-//
-//Test Run 8
-//*********Menu*********************
-//1) Single
-//2) Married Filing Jointly
-//3) Married Filing Separately
-//4) Head of Household
-//5) Exit
-//**********************************
-//
-//Enter status: 4
-//Enter your taxable income: $999999
-//The taxes owed are $373108.60
+TRANSPORTATION CHARGES (Bus) = 1300
+
+NUMBER OF DAYS OF STAY (Three*) = 8
+
+NUMBER OF MEALS IN A DAY (Vegetarian) = 5
+
+ROOM CHARGES = 2400
+
+FOOD CHARGES = 600
+
+
+***************************************************
+
+TOTAL CHARGES = 4300
+
+***************************************************
+
+
+Test Run 4
+
+TOTAL EXPENSES TO TRAVEL from l  to Clarksville
+
+***************************************************
+
+TRANSPORTATION CHARGES (Bus) = 1300
+
+NUMBER OF DAYS OF STAY (Ordinary) = 9
+
+NUMBER OF MEALS IN A DAY (Continental) = 3
+
+ROOM CHARGES = 900
+
+FOOD CHARGES = 270
+
+
+***************************************************
+
+TOTAL CHARGES = 2470
+
+***************************************************
+
+
+Test Run 5
+TOTAL EXPENSES TO TRAVEL from Nashville  to Clarksville
+
+***************************************************
+
+TRANSPORTATION CHARGES (Bus) = 1300
+
+NUMBER OF DAYS OF STAY (Three*) = 9
+
+NUMBER OF MEALS IN A DAY (Non-Veg) = 7
+
+ROOM CHARGES = 2700
+
+FOOD CHARGES = 1890
+
+
+***************************************************
+
+TOTAL CHARGES = 5890
+
+***************************************************
+
+
+*/
 

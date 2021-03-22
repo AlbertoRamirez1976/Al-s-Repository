@@ -2,7 +2,7 @@
 /* Lab 3 Question 1                                 */
 /* Name : Alberto Ramirez                           */
 /* Student ID : 1186065                             */
-/* Date: 10/12/20                                   */
+/* Date: 3/17/21                                    */
 /* This Program calculates the sum of numbers from  */
 /* m to n                                           */
 /****************************************************/
@@ -13,44 +13,48 @@ int main()
 {
 
     //Declaration
-    int valueM, valueN, sum = 0, i = 0;
+    int valueM, valueN;
+    int num = 1, sum = 0, count = 0;
 
-    //Input
-    printf("Enter the value of m: ");
-    scanf("%d", &valueM);
+    //Data/Input
+    printf("Enter the value of m : ");//Printf function will capture user input.
+    scanf("%d", &valueM);//Scanf function will assign user input to the variable valueM.
 
-    printf("Enter the value of n: ");
-    scanf("%d", &valueN);
+    printf("Enter the value of n : ");//Printf function will capture user input.
+    scanf("%d", &valueN);//Scanf function will assign user input to the variable valueN.
 
-    //Calculations
-    sum = valueM;
-    for(i = valueM + 1; i <= valueN; i++)
+    //Processing/Calculation
+    for (num = valueM; num <= valueN;num++)//For loop function will assign the valueM value to variable num, then perform a counting function.
     {
-        sum += i;
+        sum += num;//The variable sum is assigned the value of num from the loop statement and also conduct a counting function.
+
     }
 
     //Output
-    printf("Sum = %d", sum);
+    printf("Sum = %d", sum);//The sum will include all the sum of numbers between valueM and valueN.
 
     return 0;
 
 }
 
-/*
-Test Run 1:
-Enter the value of m: 7
-Enter the value of n: 11
-Sum = 45
+//Output
+//
+//Test Run 1
+//
+//Enter the value of m : 7
+//Enter the value of n : 11
+//Sum = 45
+//
+//Test Run 2
+//
+//Enter the value of m : 14
+//Enter the value of n : 22
+//Sum = 162
+//
+//Test Run 3
+//
+//Enter the value of m : 45
+//Enter the value of n : 77
+//Sum = 2013
 
-Test Run 2
-Enter the value of m: 8
-Enter the value of n: 12
-Sum = 50
 
-Test run 3
-
-Enter the value of m: 9
-Enter the value of n: 13
-Sum = 55
-
-*/

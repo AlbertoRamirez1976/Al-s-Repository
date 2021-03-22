@@ -1,10 +1,10 @@
 /****************************************************/
-/* Lab 2 Question 9                                 */
+/* Lab 2 Question 2                                 */
 /* Name : Alberto Ramirez                           */
 /* Student ID : 1186065                             */
-/* Date: 2/20/21                                    */
-/* This Program displays an even or odd number      */
-/* using a switch statement.                        */
+/* Date: 09/24/20                                   */
+/* This Program determines whether a number is even */
+/* or odd                                           */
 /****************************************************/
 
 #include<stdio.h>
@@ -15,72 +15,36 @@ int main()
      int num;
 
      //Data/Input
-     printf("Enter a number between 1 to 10: ");
+     printf("Enter any number ");
      scanf("%d",&num);
 
-        //switch statement to determine if even or odd.
-        switch (num)
+     //if statements and output
+     if (num%2 == 0)
         {
-            case 1:
-                printf("You entered %d.That is odd number.\n", num);
-                break;
-            case 2:
-                printf("You entered %d.That is even number.\n", num);
-                break;
-            case 3:
-                printf("You entered %d.That is odd number.\n", num);
-                break;
-            case 4:
-                printf("You entered %d.That is even number.\n", num);
-                break;
-            case 5:
-                printf("You entered %d.That is odd number.\n", num);
-                break;
-            case 6:
-                printf("You entered %d.That is even number.\n", num);
-                break;
-            case 7:
-                printf("You entered %d.That is odd number.\n", num);
-                break;
-            case 8:
-                printf("You entered %d.That is even number.\n", num);
-                break;
-            case 9:
-                printf("You entered %d.That is odd number.\n", num);
-                break;
-            case 10:
-                printf("You entered %d.That is even number.\n", num);
-                break;
-            default:
-                printf("Invalid, please enter a number between 1-10.\n");
+            printf("%d is even.\n", num);
         }
+
+     else
+            printf("%d is odd.\n", num);
 
      return 0;
 
-}
+} //End function main//
 
+/*
 
-//Output
-//
-//Test Run 1
-//
-//Enter a number between 1 to 10: 5
-//You entered 5.That is odd number.
+Test run 1
+Enter any number 125
+125 is odd.
 
+Test run 2
+Enter any number 152
+152 is even.
 
-//Output
-//
-//Test Run 2
-//
-//Enter a number between 1 to 10: 10
-//You entered 10.That is even number.
+Test run 3
+Enter any number 253
+253 is odd.
 
-
-//Output
-//
-//Test Run 3
-//
-//Enter a number between 1 to 10: 15
-//Invalid, please enter a number between 1-10.
+*/
 
 

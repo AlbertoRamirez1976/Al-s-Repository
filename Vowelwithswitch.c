@@ -2,7 +2,7 @@
 /* Lab 2 Question 7                                 */
 /* Name : Alberto Ramirez                           */
 /* Student ID : 1186065                             */
-/* Date: 2/20/21                                    */
+/* Date: 09/25/20                                   */
 /* This Program determines whether the character    */
 /* entered is a vowel or not.(Switch)               */
 /****************************************************/
@@ -57,30 +57,22 @@ int main()
 
      return 0;
 
-}
+} //End function main//
 
-//Output
-//
-//Test Run 1
-//
-//Enter a character: b
-//b is not a vowel.
+/*
 
+Test run 1
+Enter a character: b
+b is not a vowel.
 
-//Output
-//
-//Test Run 2
-//
-//Enter a character: B
-//B is not a vowel.
+Test run 2
+Enter a character: B
+B is not a vowel.
 
+Test run 3
+Enter a character: e
+e is a vowel.
 
-//Output
-//
-//Test Run 3
-//
-//Enter a character: e
-//e is a vowel.
-
+*/
 
 
