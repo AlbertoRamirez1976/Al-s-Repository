@@ -1,0 +1,84 @@
+
+#include<stdio.h>
+
+//Function prototype
+void load(char *employee_name, float *salary);//Function prototype for function load.
+float calc_rate(float salary, float *rate);//Function prototype for function calc_rate.
+
+int main()
+{
+    //Local variable declaration
+    char employee_name[25];
+    int i, employee_num;
+    float salary, rate,raise,newSalary,totalSalary = 0,totalRaise = 0,totalnewSalary = 0;
+
+    //Data/Input will capture user input for the number of salaries to calculate and then feed it to the while loop function
+    printf("How many employees : ");
+    scanf("%d", &employee_num);
+
+    for(i = 0; i < employee_num; i++)
+    {
+
+    //Local variable declaration
+    char employee_name[25];
+    int i, employee_num;
+    float salary, rate,raise,newSalary,totalSalary = 0,totalRaise = 0,totalnewSalary = 0;
+
+    //Function call to load function in order to recieve user input
+    load(employee_name, &salary);//Function call to load function in order to capture user input for name and salary
+
+    //Function call to determine rate
+    calc_rate(salary, &rate);//Function call to calc_rate function in order to calculate rate.
+
+    //Function call to calculate pay
+    //pay = (sales * comm_rate) - advanced_pay;
+
+    //Displays the amount of pay
+    //printf("The pay is $%.2f \n", pay);
+
+    //If statement will determine if pay is negative
+    //if(pay < 0)
+    //{
+        printf("The salesperson must reimburse the company. \n");
+
+      //}
+
+    }
+
+    return 0;
+}
+
+
+void load(char *employee_name, float *salary);//Function to capture user input for name and salary
+{
+
+    printf("Enter the Employees's name : ");
+    gets(employee_name);
+
+    printf("Enter the salary : ");
+    scanf("%f", &(*salary);
+
+    return salary;
+
+
+}
+
+float calc_rate(float salary, float *rate);//Function to calculate rate
+    float rate;
+    if(salary < 30000.00)
+        {
+            rate = .07;
+            return rate;
+        }
+        else if((salary >= 30000.00) && (salary <= 40000.00))
+            {
+                rate = .055;
+                return rate;
+            }
+            else if(sales > 40000.00)
+                {
+                    rate = .04;
+                    return rate;
+                }
+
+}
