@@ -10,8 +10,10 @@
 
 //Function prototypes
 void load(char *empl_name, float *num);//Function prototype load calls on load function in order to capture user input
-float calcRaises(float num, float *rate);//Function prototype calcRaises calls on calc raises function in order to calculate raise
-void output(char *empl_name, float num, float rate);//Function prototype calls on output function in order to display one employee's information
+float calcRaises(float num);//Function prototype calcRaises calls on calc raises function in order to calculate raise
+float getRaise(float num);
+float calc(float num, float *raise, float *total, float *newSalary);
+void output(char *empl_name, float num, float rate, float newSalary);//Function prototype calls on output function in order to display one employee's information
 
 
 int main()
@@ -21,7 +23,7 @@ int main()
      int i = 1, empl = 1;
      char empl_name[25];
      float rate, raise, num;
-     float total;
+     float newSalary, total;
 
 
      //Data/input to capture the number of employess
@@ -34,8 +36,9 @@ int main()
 
         //Function calls
         load(empl_name, &num);//Function load is assigned to salary variable in order to pass the value of salary
-        calcRaises(num, &rate);//Function calcRaises is assigned to incr variable
-        output(empl_name, num, rate);//Function output displays one employee's information
+        calcRaises(num);//Function calcRaises is assigned to incr variable
+        calc(num, &raise, &total, &newSalary);
+        output(empl_name, num, rate, newSalary);//Function output displays one employee's information
 
      }
 
@@ -61,41 +64,56 @@ void load(char *empl_name, float *num)//Function load captures user input for em
 }
 
 
-float calcRaises(float num, float *rate)//Function calc raises calculates raises
+float calcRaises(float num)//Function calc raises calculates raises
 {
 
 
      //If statement to calculate rate and then return it
      if(num > 0 && num < 30000)
         {
-            return .07;
+            num = 0.07;
 
         }
-        else if(num >= 30000 && num <= 40000)
+        if(num >= 30000 && num <= 40000)
             {
-               return 0.55;
+               num = 0.055;
 
             }
-            else if(num > 40000)
+            if(num > 40000)
                 {
-                    return .04;
+                    num = 0.04;
 
                 }
 
+                return num;
+
+}
+
+float getRaise(float num)
+{
+
+    return num* calcRaises(num);
+
+}
+
+float calc(float num, float *raise, float *total, float *newSalary)
+{
 
 
+    *total += num;
+    *raise = getRaise(num);
+    *newSalary = *total + *raise;
 
 }
 
 
-void output(char *empl_name, float num, float rate)//Function output displays one employee's information
+void output(char *empl_name, float num, float rate, float newSalary)//Function output displays one employee's information
 {
 
-     //Local variable declaration
-     float raise, newSalary;
+     float raise;
 
      //Calculation of totals
-     rate = rate * 100;
+     rate = calcRaises(num) * 100;
      raise = num * (rate / 100);
      newSalary = num + raise;
 
