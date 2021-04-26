@@ -9,9 +9,9 @@
 #include<stdio.h>
 
 //Function prototypes
-float load();//Function prototype load calls on load function in order to capture user input
-float calcRaises(float num);//Function prototype calcRaises calls on calc raises function in order to calculate raise
-void output(float salary, float rate);//Function prototype calls on output function in order to display one employee's information
+void load(char *empl_name, float *num);//Function prototype load calls on load function in order to capture user input
+float calcRaises(float num, float *rate);//Function prototype calcRaises calls on calc raises function in order to calculate raise
+void output(char *empl_name, float num, float rate);//Function prototype calls on output function in order to display one employee's information
 
 
 int main()
@@ -19,7 +19,8 @@ int main()
 
      //Local Variable declaration
      int i = 1, empl = 1;
-     float rate, raise, salary;
+     char empl_name[25];
+     float rate, raise, num;
      float total;
 
 
@@ -32,61 +33,62 @@ int main()
      {
 
         //Function calls
-        salary = load();//Function load is assigned to salary variable in order to pass the value of salary
-        rate = calcRaises(salary);//Function calcRaises is assigned to incr variable
-        output(salary, rate);//Function output displays one employee's information
+        load(empl_name, &num);//Function load is assigned to salary variable in order to pass the value of salary
+        calcRaises(num, &rate);//Function calcRaises is assigned to incr variable
+        output(empl_name, num, rate);//Function output displays one employee's information
 
      }
-
-
 
      return 0;
 
 }
 
 
-
-float load()//Function load captures user input for employee name and salary
+void load(char *empl_name, float *num)//Function load captures user input for employee name and salary
 {
 
-    char empl_name[25];
-    float num;
+    getchar();
+
 
     printf("\nEnter the Employee's name : ");
-    empl_name = gets();
+    gets(empl_name);
 
     printf("\nEnter salary : ");
-    scanf("%f",&num);
+    scanf("%f",&*num);
 
 
 
 }
 
 
-float calcRaises(float num)//Function calc raises calculates raises
+float calcRaises(float num, float *rate)//Function calc raises calculates raises
 {
-    float raise;
+
 
      //If statement to calculate rate and then return it
-    if(num > 0 && num < 30000)
+     if(num > 0 && num < 30000)
         {
-            raise = .07;
+            return .07;
+
         }
         else if(num >= 30000 && num <= 40000)
             {
-                raise = .055;
+               return 0.55;
+
             }
             else if(num > 40000)
                 {
-                    raise = .04;
+                    return .04;
+
                 }
 
-                return raise;
+
+
 
 }
 
 
-void output(float salary, float rate)//Function output displays one employee's information
+void output(char *empl_name, float num, float rate)//Function output displays one employee's information
 {
 
      //Local variable declaration
@@ -94,11 +96,12 @@ void output(float salary, float rate)//Function output displays one employee's i
 
      //Calculation of totals
      rate = rate * 100;
-     raise = salary * (rate / 100);
-     newSalary = salary + raise;
+     raise = num * (rate / 100);
+     newSalary = num + raise;
 
      printf("\n");
-     printf("Salary             :  %10.2f\n", salary);
+     printf("Employee's name    :  %s\n", empl_name);
+     printf("Salary             :  %10.2f\n", num);
      printf("Rate               :  %10.1f%%\n",rate);
      printf("Raise              :  %10.2f\n", raise);
      printf("New Salary         :  %10.2f\n", newSalary);
