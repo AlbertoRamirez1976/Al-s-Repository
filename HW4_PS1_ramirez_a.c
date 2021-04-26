@@ -2,197 +2,106 @@
 /* Name : Alberto Ramirez                            */
 /* Student ID : 1186065                              */
 /* Homework 4 Program Set 1                          */
-/* Date: 4/22/21                                     */
+/* Date: 4/25/21                                     */
 /* Program with functions to calculate salary raise  */
 /*****************************************************/
 
 #include<stdio.h>
 
-//function Prototype Declaration
+//Function prototypes
+float load();//Function prototype load calls on load function in order to capture user input
+float calcRaises(float num);//Function prototype calcRaises calls on calc raises function in order to calculate raise
+void output(float salary, float rate);//Function prototype calls on output function in order to display one employee's information
 
-float load (float salary);
-
-float calculate_raise(float sal, float raise, float rate, float newsal);
-
-void output(char emplName, float salary);
-
-//starting of main function
 
 int main()
-
 {
 
-    //Varibale data type declaration
-    int i, num;
-    char emplName[25];
-    float salary;
+     //Local Variable declaration
+     int i = 1, empl = 1;
+     float rate, raise, salary;
+     float total;
 
 
-    printf("How many salaries do you want to enter? ");
-    scanf("%d", &num);
+     //Data/input to capture the number of employess
+     printf("How many employees : ");
+     scanf("%d", &empl);
 
 
-    for(i = 0; i < num; i++)
-    {
+     for (i; i<= empl; i++)
+     {
 
-    load (salary);
-    output(emplName, salary);
+        //Function calls
+        salary = load();//Function load is assigned to salary variable in order to pass the value of salary
+        rate = calcRaises(salary);//Function calcRaises is assigned to incr variable
+        output(salary, rate);//Function output displays one employee's information
 
-    }
+     }
 
-    return 0;
 
-}
 
-//function defination
-
-float load (float salary)
-
-{
-
-    char emplName[25];
-    float raise, rate, newsal;
-
-    float sal;
-
-    printf("Enter the Employee's name: ");
-    scanf("%s", &emplName);
-
-    printf("Enter Salary: ");
-    scanf("%f", &salary);
-
-        if(salary<0)
-
-            {
-
-            return 0;
-
-            }
-
-    //call to function raise
-
-    calculate_raise(salary, rate, rate, newsal);
+     return 0;
 
 }
 
 
-float calculate_raise(float sal, float raise, float rate, float newsal)
 
+float load()//Function load captures user input for employee name and salary
 {
 
-    //Initialization of varibale
-    float rate0 = 0.00;
+    char empl_name[25];
+    float num;
 
-    float rate1 = 7.00;
+    printf("\nEnter the Employee's name : ");
+    empl_name = gets();
 
-    float rate2 = 5.5;
-
-    float rate3 = 4.0;
-
-    float total_sal = 0;
-
-    float total_raise = 0;
-
-    float total_new = 0;
-
-        if(sal == 0)
-
-            {
-
-            newsal = 0;
-
-            raise = 0;
-
-            total_sal = total_sal + sal;
-
-            total_raise = total_raise + raise;
-
-            total_new = total_new + newsal;
-
-            //call to print function
-
-
-
-            return;
-
-            }
-
-            if(sal>0 && sal<30000)
-
-            {
-
-            newsal = sal + sal*7/100;
-
-            raise = newsal-sal;
-
-            total_sal = total_sal + sal;
-
-            total_raise = total_raise + raise;
-
-            total_new = total_new + newsal;
-
-            //call to print function
-
-
-
-            return;
-
-            }
-
-            else if(sal >30000 && sal <=40000)
-
-            {
-
-            newsal = sal + sal*5.5/100;
-
-            raise = newsal-sal;
-
-            total_sal = total_sal + sal;
-
-            total_raise = total_raise + raise;
-
-            total_new = total_new + newsal;
-
-            //call to print function
-
-
-
-            return;
-
-            }
-
-            else if(sal>40000)
-
-            {
-
-            newsal = sal + sal*4.0/100;
-
-            raise = newsal-sal;
-
-            total_sal = total_sal + sal;
-
-            total_raise = total_raise + raise;
-
-            total_new = total_new + newsal;
-
-            //call to print function
-
-
-
-            return;
-
-            }
-
-}
-
-void output(char emplName, float salary)
-
-{
-
-
-    printf("\nEmployee's Name    : %s", emplName);
-    printf("\nSalary             : %10.2f", salary);
+    printf("\nEnter salary : ");
+    scanf("%f",&num);
 
 
 
 }
+
+
+float calcRaises(float num)//Function calc raises calculates raises
+{
+    float raise;
+
+     //If statement to calculate rate and then return it
+    if(num > 0 && num < 30000)
+        {
+            raise = .07;
+        }
+        else if(num >= 30000 && num <= 40000)
+            {
+                raise = .055;
+            }
+            else if(num > 40000)
+                {
+                    raise = .04;
+                }
+
+                return raise;
+
+}
+
+
+void output(float salary, float rate)//Function output displays one employee's information
+{
+
+     //Local variable declaration
+     float raise, newSalary;
+
+     //Calculation of totals
+     rate = rate * 100;
+     raise = salary * (rate / 100);
+     newSalary = salary + raise;
+
+     printf("\n");
+     printf("Salary             :  %10.2f\n", salary);
+     printf("Rate               :  %10.1f%%\n",rate);
+     printf("Raise              :  %10.2f\n", raise);
+     printf("New Salary         :  %10.2f\n", newSalary);
+}
+
+
