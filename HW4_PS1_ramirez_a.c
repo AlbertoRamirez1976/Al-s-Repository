@@ -8,27 +8,24 @@
 
 #include <stdio.h>
 
-
 //Function prototypes
-void load(char *name,float *salary);//Function prototype load calls on load function in order to capture user input for emplaoyee name and salary
+void load(char *empl_name,float *salary);//Function prototype load declares load function in order to capture user input for emplaoyee name and salary
 
-float calculateRate(float salary);//Function prototype calculateRate calls on calculateRate function in order to calculate rate
+float calculate_Rate(float salary);//Function prototype calculate_Rate declares calculate_Rate function in order to calculate rate
 
-float calculateRaise(float salary,float rate);//Function prototype calculateRaise calls on calculateRaise function in order to calculate raise
+float calculate_Raise(float salary,float rate);//Function prototype calculate_Raise declares calculate_Raise function in order to calculate raise
 
-float calculateNewSalary(float salary,float raise);//Function prototype calculateNewSalary calls on calculateNewSalary function in order to calculate new salary
+float calculate_NewSalary(float salary,float raise);//Function prototype calculate_NewSalary declares calculate_NewSalary function in order to calculate new salary
 
-float calculateTotalRaise(float totalRaise,float raise);//Function prototype calculateTotalRaise calls on calculateTotalRaise function in order to calculate total raise
+float calculate_TotalRaise(float totalRaise,float raise);//Function prototype calculate_TotalRaise declares calculate_TotalRaise function in order to calculate total raise
 
-float calculateTotalSalary(float totalSalary,float salary);//Function prototype calculateTotalSalary calls on calculateTotalsalary function in order to calculate total salary
+float calculate_TotalSalary(float totalSalary,float salary);//Function prototype calculate_TotalSalary declares calculate_Totalsalary function in order to calculate total salary
 
-float calculateTotalNewSalary(float totalNewSalary,float newSalary);//Function prototype calculateTotalNewSalary calls on calculateTotalNewSalary function in order to calculate total new salary
+float calculate_TotalNewSalary(float totalNewSalary,float newSalary);//Function prototype calculate_TotalNewSalary declares calculate_TotalNewSalary function in order to calculate total new salary
 
-void output(char* empl_name,float salary,float rate,float raise,float newSalary);//Function prototype output calls on output function in order to display one employee's information
+void output(char* empl_name,float salary,float rate,float raise,float newSalary);//Function prototype output declares output function in order to display one employee's information
 
-void total(float totalSalary,float totalRaise,float totalNewSalary);//Function prototype total calls on total function in order to display the total for all employees
-
-
+void total(float totalSalary,float totalRaise,float totalNewSalary);//Function prototype total declares total function in order to display the total for all employees
 
 int main()
 {
@@ -36,7 +33,6 @@ int main()
     //Local variable declaration within main function
     int i, empl_num;//i and empl_num variables are declared and will be utilized as counter control variables within the for loop
     float totalSalary = 0,totalRaise = 0,totalNewSalary = 0;//Local variable declaration for total variables that will capture the totals for all employees
-
 
     //Data/input for the number of employees that will be entered as part of the for loop
     printf("How many employees : ");
@@ -50,35 +46,33 @@ int main()
                 char empl_name[25];//Local variable declaration for empl_name which will capture the user input for empl_name
                 float salary;//Local variable declaration for salary which will capture the user input for salary
 
-                //Function call to function load in order to return results of user input for empl_name and salary
-                load(empl_name, &salary);//Function prototype load calls on load function in order to capture user input for emplaoyee name and salary
+                //Function call to function load in order to receive user input for empl_name and salary
+                load(empl_name, &salary);//Function prototype load calls on load function which will pass by references the associated variable
 
-                //Local variable declaration within the for loop for the functions associated with calculations
-                float rate = calculateRate(salary);
-                float raise = calculateRaise(salary,rate);
-                float newSalary = calculateNewSalary(salary,raise);
+                //Local variable declaration within the for loop for the functions associated with calculations. They are assigned the values associated with the called function on the right.
+                float rate = calculate_Rate(salary);
+                float raise = calculate_Raise(salary,rate);
+                float newSalary = calculate_NewSalary(salary,raise);
 
                 //Function call to all functions associated with totals
-                totalRaise = calculateTotalRaise(totalRaise,raise);
-                totalSalary = calculateTotalSalary(totalSalary,salary);
-                totalNewSalary = calculateTotalNewSalary(totalNewSalary,newSalary);
+                totalRaise = calculate_TotalRaise(totalRaise,raise);
+                totalSalary = calculate_TotalSalary(totalSalary,salary);
+                totalNewSalary = calculate_TotalNewSalary(totalNewSalary,newSalary);
 
                 //Function call to output function which displays one employee's information at a time
                 output(empl_name,salary,rate,raise,newSalary);
-
 
             }
 
                 //Function call to total function which displays totals for all employees
                 total(totalSalary,totalRaise,totalNewSalary);
 
-
             return 0;
 
 }
 
 
-void load(char *empl_name,float *salary)//Function load captures user input for emplaoyee name and salary
+void load(char *empl_name,float *salary)//Function load captures user input for emplaoyee name and salary and then passes empl_name and salary by reference
 {
 
     getchar();//getchar is utilized to clear memory before the next iteration whithin the for loop
@@ -94,9 +88,8 @@ void load(char *empl_name,float *salary)//Function load captures user input for 
 }
 
 
-float calculateRate(float salary)//Function calculateRate accepts salary parameter as an input and then calculates rate
+float calculate_Rate(float salary)//Function calculate_Rate accepts salary parameter as an input and then calculates rate
 {
-
 
     if(salary > 0 && salary < 30000)
         {
@@ -111,11 +104,10 @@ float calculateRate(float salary)//Function calculateRate accepts salary paramet
                     return 4.0;
                 }
 
-
 }
 
 
-float calculateRaise(float salary,float rate)//Function calculateRaise accepts salary and rate parameters as an input and then calculates raise
+float calculate_Raise(float salary,float rate)//Function calculate_Raise accepts salary and rate parameters as an input and then calculates raise
 {
 
     return salary * (rate / 100);//Rate is devided by 100 in order to return a decimal value to two decimal places from a percent.
@@ -123,7 +115,7 @@ float calculateRaise(float salary,float rate)//Function calculateRaise accepts s
 }
 
 
-float calculateNewSalary(float salary,float raise)//Function calculateNewSalary accepts salary and raise parameters as an input and then calculates new salary
+float calculate_NewSalary(float salary,float raise)//Function calculate_NewSalary accepts salary and raise parameters as an input and then calculates new salary
 {
 
     return salary + raise;
@@ -131,7 +123,7 @@ float calculateNewSalary(float salary,float raise)//Function calculateNewSalary 
 }
 
 
-float calculateTotalRaise(float totalRaise,float raise)//Function calculateTotalRaise accepts totalRaise and raise parameters as an input and then calculates total raise
+float calculate_TotalRaise(float totalRaise,float raise)//Function calculate_TotalRaise accepts totalRaise and raise parameters as an input and then calculates total raise
 {
 
     return totalRaise + raise;
@@ -139,7 +131,7 @@ float calculateTotalRaise(float totalRaise,float raise)//Function calculateTotal
 }
 
 
-float calculateTotalSalary(float totalSalary,float salary)//Function calculateTotalSalary accepts totalSalary and salary parameters as an input and then calculates total salary
+float calculate_TotalSalary(float totalSalary,float salary)//Function calculate_TotalSalary accepts totalSalary and salary parameters as an input and then calculates total salary
 {
 
     return totalSalary + salary;
@@ -147,7 +139,7 @@ float calculateTotalSalary(float totalSalary,float salary)//Function calculateTo
 }
 
 
-float calculateTotalNewSalary(float totalNewSalary,float newSalary)//Function calculateTotalNewSalary accepts totalNewSalary and newSalary parameters as an input and then calculates total new salary
+float calculate_TotalNewSalary(float totalNewSalary,float newSalary)//Function calculate_TotalNewSalary accepts totalNewSalary and newSalary parameters as an input and then calculates total new salary
 {
 
     return totalNewSalary + newSalary;
@@ -173,8 +165,8 @@ void total(float totalSalary,float totalRaise,float totalNewSalary)//Function to
 
     //Precision of 10 columns and two decimal places will keep all outputs in line
     printf("\nTotal salary      : %10.2f", totalSalary);
-    printf("\nTotal Raise       : %10.2f",totalRaise);
-    printf("\nTotal New Salary  : %10.2f\n",totalNewSalary);
+    printf("\nTotal Raise       : %10.2f", totalRaise);
+    printf("\nTotal New Salary  : %10.2f\n", totalNewSalary);
 
 }
 
