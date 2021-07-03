@@ -1,0 +1,27 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 1 Assignment				    */	
+/* Homework 1 Program: E1.1                         */
+/* Date: 7/3/21                                     */
+/* This Java program displays a greeting in English */
+/* and Spanish   	   			    */		
+/****************************************************/
+
+public class Greetings 
+{
+
+	public static void main(String[] args) 
+	{
+		//Prompting message
+		System.out.println ("The greeting \"Hello World!\" in " + "Spanish:\n");
+		
+		//Displays the "Hello World" greeting in Spanish.
+		System.out.println ("Hola Mundo!");
+
+	}
+
+}
+
+
+

@@ -1,0 +1,48 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 1 Assignment				    */	
+/* Homework 1 Program: E1.4                         */
+/* Date: 7/3/21                                     */
+/* This Java program displays the account balance   */   
+/* of an account after the first, second, and third */
+/* year.                                            */		
+/****************************************************/
+
+public class Balance
+{
+
+	public static void main(String[] args) 
+	{
+		//Variable Declaration
+		double initialAccountBalance = 1000;//Initial Account Balance variable is declared with the value of $1,000
+		double interestRate = 5.0;//Interest Rate variable is declared with the value of 5%.
+		double principalAmount = initialAccountBalance;//Principal Amount variable is assigned the value of variable Initial Account Balance with a value of $1,000.
+		double time = 1;//Time variable is declared with the value of 1 year.
+		double rate = interestRate;//Rate variable is assigned the value of Interest Rate with the value of 5%.
+		
+		//Calculations
+		double balance = principalAmount + (principalAmount * time * rate / 100.0);//Balance is calculated with the values of the variables and divided by 100 in order to display balance in decimal format.
+		
+		//Output of the first year's account balance
+		System.out.println ("The account balance " + "after the first year: $" + balance);
+		
+		//Recalculation and variable redeclaration
+		principalAmount = balance;//Principal Amount variable is assigned the value of variable Initial Account Balance with a value of $1,000.
+		time = 1;//Time variable is declared with the value of 1 year.
+		rate = interestRate;//Rate variable is assigned the value of Interest Rate with the value of 5%.
+		balance = principalAmount + (principalAmount * time * rate / 100.0);//Balance is calculated with the values of the variables and divided by 100 in order to display balance in decimal format.	
+		
+		//Output of the second year's account balance
+		System.out.println ("The account balance " + "after the second year: $" + balance);
+		
+		//Recalculation and variable redeclaration
+		principalAmount = balance;//Principal Amount variable is assigned the value of variable Initial Account Balance with a value of $1,000.
+		time = 1;//Time variable is declared with the value of 1 year.
+		rate = interestRate;//Rate variable is assigned the value of Interest Rate with the value of 5%.
+		balance = principalAmount + (principalAmount * time * rate / 100.0);//Balance is calculated with the values of the variables and divided by 100 in order to display balance in decimal format.
+				
+		//Output of the third year's account balance
+		System.out.println ("The account balance " + "after the third year: $" + balance);
+		
+	}
