@@ -1,0 +1,51 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 6 Assignment				    */	
+/* Assignment 6 Program: P8.3                       */
+/* Date: 7/27/21                                    */
+/* This program simulates a car sharing system	    */
+/* in which a commuter picks up and drops off	    */
+/* passengers at designated stations		    */
+/****************************************************/
+
+package Car;
+	
+import java.util.*;
+
+public class Car 
+{
+
+	//Local variable declaration
+	private int start;//Variable will be assigned to start value
+	private int end;//Variable will be assigned to ending value
+	public ArrayList<Passenger> onBoard;//Array variable list for passengers
+
+		//Constructor Car class
+		public Car(int currentStation) 
+		{
+				//Random number function will be utilized
+				Random rand = new Random();
+
+				//Reference object(.this) references the class object
+				this.start = currentStation;//Reference object calls on the start method
+				this.end = rand.nextInt(31 - start) + start;//Reference object calls on the end method
+				onBoard = new ArrayList<>();//onBoard variable will be assigned the array list value
+		}
+		
+				//Method getStart will return the start value
+				public int getStart() 
+				{
+					return start;
+				}
+
+				//Method getStart will return the ending value
+				public int getEnd() 
+				{
+					return end;
+				}
+}
+
+
+
+

@@ -1,0 +1,62 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 6 Assignment				    */	
+/* Assignment 6 Program: P8.3                       */
+/* Date: 7/27/21                                    */
+/* This program simulates a car sharing system	    */
+/* in which a commuter picks up and drops off	    */
+/* passengers at designated stations		    */
+/****************************************************/
+package Car;
+
+public class Simulation 
+{
+
+	//Local variable declaration
+	private int iterations;//Variable will be assigned the value of iterations
+	private double totalMiles;//Variable will be assigned the value of total miles
+	private double revenue;//Variable will be assigned the value of revenue
+
+	
+	//Method simulation will call on the reference object and appropriate method
+	public Simulation(int iterations, int revenue) 
+	{
+		//Reference object calls on appropriate methods
+		this.iterations = iterations;//Reference object will be assigned the value of iteration
+		this.totalMiles = 0;//Reference object will call on the totalMiles method and initialized to zero
+		this.revenue = revenue;//Reference object will call on the revenue method
+	}
+
+	//Method run will call on the for loop in order to create iterations of station
+	public void run() 
+	{
+		for (int i = 0; i < iterations; i++) 
+		{
+			Station station = new Station();
+			station.operateStation();
+			totalMiles += station.getMiles();
+		}
+	}
+
+	//Method getRevenuePerMile will return revenue value divided by totalMiles
+	public double getRevenuePerMile() 
+	{
+		return Math.floor (revenue / totalMiles) * 100 / 100;//Truncation of the result to nearest dollar
+	}
+
+	//Main method will call on the simulation method and return the average revenue per mile
+	public static void main(String[] args) 
+	{
+		Simulation sim = new Simulation(1000, 500000);
+		sim.run();
+		double averageRevenue = sim.getRevenuePerMile();
+
+		System.out.println("Average revenue per mile: $" + averageRevenue);
+
+	}
+}
+
+
+	
+

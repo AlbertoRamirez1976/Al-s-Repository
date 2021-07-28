@@ -1,0 +1,84 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 6 Assignment				    */
+/* Assignment 6     Program: E8.26                  */
+/* Date: 7/26/21                                    */
+/* This program simulates a robot wandering on      */
+/* an infinite plane				    */
+/****************************************************/
+
+package Robot;
+
+public class RobotTest 
+{
+
+      public static void main(String[] args) 
+      {
+
+            //New robot class object is created
+            Robot robot=new Robot();
+
+            //Output of the initial position of the robot
+            System.out.println(robot);
+
+            //Robot object calls on the move method and moves the robot two units
+            robot.move();
+            robot.move();
+
+            //Output of the current position of the robot after moving two units
+            System.out.println("");//Blank line
+            System.out.println("After moving two units to the north:");
+            System.out.println(robot);
+          
+            //Robot object calls on the turnRight and move method in order to move the robot right and two units
+            robot.turnRight();
+            robot.move();
+            robot.move();
+
+            //Output of the current position of the robot after moving to the right and two units
+            System.out.println("");//Blank line
+            System.out.println("After turning right and moving two units:");
+            System.out.println(robot);
+
+            //Robot object calls on the turnLeft and move method in order to move the robot left and three units
+            robot.turnLeft();
+            robot.move();
+            robot.move();
+            robot.move();
+
+            //Output of the current position of the robot after moving to the left and three units
+            System.out.println("");//Blank line
+            System.out.println("After turning left and moving three units:");
+            System.out.println(robot);
+          
+            //New robot class object is created
+            System.out.println("");//Blank line
+            System.out.println("\nCreating a second Robot that will face \nin the opposite direction from the first");
+            Robot robot2=new Robot();
+            System.out.println(robot2);
+
+            //The second robot object calls on the turnLeft and move method in order to move the robot left and two units
+            robot2.turnLeft();
+            robot2.move();
+            robot2.move();
+
+            //Output of the current position of the second robot after moving to the left and two units
+            System.out.println("");//Blank line
+            System.out.println("After turning left and moving two units:");
+            System.out.println(robot2);
+
+            //The second robot object calls on the turnLeft and move method in order to move the robot left and two units
+            robot2.turnLeft();
+            robot2.move();
+            robot2.move();
+
+            //Output of the current position of the second robot after moving to the left and two units
+            System.out.println("");//Blank line
+            System.out.println("After turning left and moving two units:");
+            System.out.println(robot2);
+         
+      }
+
+}
+

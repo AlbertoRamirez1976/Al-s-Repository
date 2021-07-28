@@ -1,0 +1,31 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 6 Assignment				    */
+/* Assignment 6     Program: P8.1	            */
+/* Date: 7/27/21                                    */
+/* This program simulates a combination lock	    */
+/****************************************************/
+
+package ComboLock;
+
+public class ComboLockTester
+{
+    public static void main(String[] args)
+    {
+        
+    	//New ComboLock object is created
+    	ComboLock lock = new ComboLock(20, 30, 0);
+
+    	//Boolean class type will return either a true or false values
+    	boolean isOpen = lock.open();
+
+        //Output of the lock status
+    	System.out.println("");//Blank line
+    	System.out.println("Is the lock open? " + isOpen);
+
+        //reset method is called in order to reset the dial
+        lock.reset();
+    }
+}
+

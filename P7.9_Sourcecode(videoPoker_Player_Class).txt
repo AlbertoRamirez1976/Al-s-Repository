@@ -1,0 +1,75 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 4 Assignment				    */
+/* Lab 3     Program: P7.9                          */
+/* Date: 7/18/21                                    */
+/* This Java program simulates a video poker game.  */
+/****************************************************/
+import java.util.ArrayList;
+
+public class Player 
+{
+  //Array list declaration	
+  private ArrayList<Card> hand; //Represents the player's hand
+  
+  //Variable declaration
+  private int credits;//Variable will represent the credits
+  
+  //Constant variable declaration
+  private final int INITIAL_CREDIT = 50;
+
+  public Player()//New instance of player is created 
+  {
+   
+    this.hand = new ArrayList<Card>();
+    this.credits = INITIAL_CREDIT;
+  }
+
+  public void addCard(Card c)//Adds cards to the hand 
+  {
+    hand.add(c);
+  }
+
+  public void removeCard(Card c)//Removes a card from the hand 
+  {
+    hand.remove(c);
+  }
+
+  public void removeAllCards()//Removes all cards from play
+  {
+    hand.clear();
+  }
+
+ 
+  public void replaceCard(Card oldCard, Card newCard)//Replaces an old card with a new one 
+  {
+    int index = hand.indexOf(oldCard);
+    hand.set(index, newCard);
+  }
+
+  public boolean containCard(Card card)//Tests whether the hand contains the card
+  {
+    return hand.contains(card);
+  }
+
+  public ArrayList<Card> getPlayerHand()//Returns the player's card
+  {
+    return hand;
+  }
+
+  public void addCredits(int credit)//Adds credit
+  {
+    this.credits += credit;
+  }
+
+  public int getAllCredit()//Returns player's credit
+  {
+    return this.credits;
+  }
+
+  public void removeCredit(int credit)//removes all credits
+  {
+    this.credits -= credit;
+  }
+} 

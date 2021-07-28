@@ -1,0 +1,189 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 6 Assignment				    */
+/* Assignment 6     Program: E8.26                  */
+/* Date: 7/27/21                                    */
+/* This program simulates a robot wandering on      */
+/* an infinite plane				    */
+/****************************************************/
+
+package Robot;
+
+import java.awt.Point;//Java.awt class contains all the classes for creating user interfaces and for painting graphics. 
+//The.Point class represents a location in (x,y) coordinates space.
+
+public class Robot 
+{
+
+      //Local variable declaration
+      private Point location;//Local variable will represent the robot's location utilizing the .Point class
+
+      private int direction;//Local variable will represent the robot's direction
+
+     
+      //Constant variable declaration
+      public static final int NORTH = 0;//Constant variable will represent the NORTH direction with value 0
+
+      public static final int EAST = 1;//Constant variable will represent the EAST direction with value 1
+
+      public static final int SOUTH = 2;//Constant variable will represent the SOUTH direction with value 2
+
+      public static final int WEST = 3;//Constant variable will represent the WEST direction with value 3
+
+      //Constructor class Robot will accept the parameters for location and direction
+      public Robot(Point location, int direction) 
+      {
+
+          //A reference to the current object will call the method location 
+    	  this.location = location;
+
+            //If statement will test the value for direction
+            if (direction == NORTH || direction == EAST || direction == SOUTH
+
+                        || direction == WEST)
+
+            	//A reference to the current object will call the method location and be assigned the direction 
+            	this.direction = direction;
+
+      }
+
+      //Constructor class Robot will not accept any parameters. It will return location and direction
+      public Robot() 
+      {
+
+            //Location variable will be assigned a new coordinate value
+            location = new Point(0, 0);
+
+            //The direction variable will be assigned the value of the constant NORTH
+            direction = NORTH;
+
+      }
+
+      //Method turnLeft will turn the robot to the left
+      public void turnLeft() 
+      {
+
+          //Decrement operator will be utilized by the direction variable in order to decrement the left value
+    	  //The movement will be in a negative direction or WEST
+    	  direction--;
+
+    	    //If statement will be utilized in order to test the value for direction
+            if (direction < 0) 
+            {
+
+                  direction = 3;//The variable direction is assigned a value of 3 which represents the WEST
+
+            }
+
+      }
+
+      //Method turnRight will turn the robot to the right
+      public void turnRight() 
+      {
+
+    	  //Increment operator will be utilized by the direction variable in order to decrement the right value
+    	  //The movement will be in a positive direction or EAST
+    	  direction++;
+
+    	    //If statement will be utilized in order to test the value for direction
+            if (direction > 3) 
+            {
+
+                  direction = 0;//The variable direction is assigned a value of 3 which represents the NORTH
+
+            }
+
+      }
+
+      //Method will move the robot
+      public void move() 
+      {
+
+           	//Switch statement will test the direction value with each case and return a location
+            switch (direction) 
+            {
+
+            case NORTH:
+
+                  location.y++;//NORTH
+
+                  break;
+
+            case EAST:
+
+                  location.x++;//EAST
+
+                  break;
+
+            case SOUTH:
+
+                  location.y--;//SOUTH
+
+                  break;
+
+            case WEST:
+
+                  location.x--;//WEST
+
+                  break;
+
+            }
+
+      }
+
+      //Method turnLeft will return the location
+      public Point getLocation() {
+
+            return location;
+
+      }
+
+      //Method will return the direction
+      public String getDirection() 
+      {
+
+    		//Switch statement will test the direction value with each case and return a direction
+            switch (direction) 
+            {
+
+            case NORTH:
+
+                  return "N";//NORTH
+
+            case EAST:
+
+                  return "E";//EAST
+
+            case SOUTH:
+
+                  return "S";//SOUTH
+
+            default:
+
+                  return "W";//WEST
+
+            }
+
+      }
+
+      //Comparison of direction
+      public boolean equals(Robot other) 
+      {
+
+            return location.equals(other.location) && direction == other.direction;
+
+      }
+
+      
+      //Method will return the direction
+      public String toString() 
+      {
+
+            return "Robot at (" + location.x + ", " + location.y + ") facing "
+
+                        + getDirection();
+
+      }
+
+}

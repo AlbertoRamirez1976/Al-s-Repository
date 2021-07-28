@@ -1,0 +1,138 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 6 Assignment				    */
+/* Assignment 6     Program: P8.1	            */
+/* Date: 7/27/21                                    */
+/* This program simulates a combination lock	    */
+/****************************************************/
+
+package ComboLock;
+
+import java.util.Scanner;
+
+public class ComboLock
+{
+
+    //Local variable and constant declaration
+	private static final int TOTAL_DISC_NUMBERS = 40;//Combination total of 40 represents the lock construction
+   
+	//Local variable and constant declaration
+	private int dial;//Variable will be assigned the value of the dial
+   
+    private int secret1;//Variable will be assigned the first secret value
+    private int secret2;//Variable will be assigned the second secret value
+    private int secret3;//Variable will be assigned the third secret value
+
+    private Scanner in;
+    
+    //Constructor class ComboLock creates a new object and accepts parameters
+    public ComboLock(int secret1, int secret2, int secret3)
+    {
+        dial = 0;//Dial variable is initialized to zero
+        in = new Scanner(System.in);
+        
+        //The reference object (.this) calls on the secret variable
+        this.secret1 = secret1;
+        this.secret2 = secret2;
+        this.secret3 = secret3;
+    }
+
+    //Method turnLeft will turn the dial to the left
+    public void turnLeft(int ticks)
+    {
+        
+    	//If else statement will test the value of ticks and dial
+    	if (dial - ticks >= 0)
+        {
+            dial -= ticks;
+        }
+        else
+        {
+            dial = TOTAL_DISC_NUMBERS - ticks + dial;
+        }
+    }
+
+    //Method turnLeft will turn the dial to the right
+    public void turnRight(int ticks)
+    {
+        
+    	//If else statement will test the value of ticks and dial
+    	if (dial + ticks < TOTAL_DISC_NUMBERS)
+        {
+            dial += ticks;
+        }
+        else
+        {
+            dial = (dial + ticks) % TOTAL_DISC_NUMBERS;
+        }
+    }
+
+    //Method reset will reset the dial so that it points to zero
+    public void reset()
+    {
+        dial = 0;
+    }
+
+    //Boolean class method will assign a value of the primitive type boolean in an object
+    public boolean open()
+    {
+        
+    	//Boolean primitive type values (true or false) assigned to the variable secret
+    	boolean secret1 = false;
+        boolean secret2 = false;
+        boolean secret3 = false;
+        
+       
+        turnRight(getInput("Turn the dial to the right: "));
+
+        
+        //If else statement will test the value of secret and dial
+        if (dial == this.secret1)
+        {
+            secret1 = true;
+        }
+
+        System.out.println("");//Blank line
+        turnLeft(getInput("Turn the dial to the left: "));
+
+        if (dial == this.secret2)
+        {
+            secret2 = true;
+        }
+
+        System.out.println("");//Blank line
+        turnRight(getInput("Turn the dial to the right once again: "));
+
+        if (dial == this.secret3)
+        {
+            secret3 = true;
+        }
+
+        return secret1 && secret2 && secret3;
+    }
+
+    //Method getInput will accept user input
+    public int getInput(String prompt)
+    {
+        
+    	//Variable declaration for the input variable which will be assigned the user input value
+    	int input;
+        
+    	//Do while loop statement will be utilized in order to start the loop process and accept user input first
+    	do
+        {
+            System.out.print(prompt);
+            input = in.nextInt();
+
+            if (input < 1 || input > 40)
+            {
+            	System.out.println("");//Blank line
+            	System.out.print("Sorry, but the input value must be between 1 and 40. ");
+            }
+        }
+        while (input < 1 || input > 40);
+        
+        return input;
+    }
+}

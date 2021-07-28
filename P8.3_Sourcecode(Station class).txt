@@ -1,0 +1,146 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 6 Assignment				    */	
+/* Assignment 6 Program: P8.3                       */
+/* Date: 7/27/21                                    */
+/* This program simulates a car sharing system	    */
+/* in which a commuter picks up and drops off	    */
+/* passengers at designated stations		    */
+/****************************************************/
+
+package Car;
+
+import java.util.*;
+
+public class Station 
+{
+
+	//Constant variable declaration
+	private final int MAX_CAPACITY = 3;//Constant will be assigned the value of 3
+
+	//Local variable declaration
+	private int miles;//Variable will be assigned the value of miles
+	private int currentStation;//Variable will be assigned the value of the current station
+	private ArrayList<Car> parkingLot;//Array list of cars
+	private ArrayList<Passenger> onStation;//Array list of passengers
+
+	//Method station 
+	public Station() 
+	{
+		//Class reference objects
+		this.miles = 0;//Class reference object will call on the method miles and be assigned an initial value of zero
+		this.currentStation = 0;//Class reference object will call on the method miles and be assigned an initial value of zero
+		
+		//Variables will be assigned the values of the Array list 
+		parkingLot = new ArrayList<>();
+		onStation = new ArrayList<>();
+	}
+
+	//Method operate station will call appropriate methods
+	public void operateStation() 
+	{
+		//Method calls
+		makeCars();
+		makePassengers();
+		pickUp();
+
+		//For loop will create less than 30 iterations
+		for (int i = 0; i < 30; i++) 
+		{
+			currentStation++;//Increment operator will increment variable currentStation
+			dropOff();
+			makeCars();
+			makePassengers();
+			pickUp();
+		}
+
+	}
+
+	//Method makeCars will create new car objects
+	public void makeCars() 
+	{
+		//Random number generator
+		Random rand = new Random();
+
+		int nCars = 1; //rand.nextInt(3) + 1;
+
+		//For loop will create less than number of cars iterations
+		for (int i = 0; i < nCars; i++) 
+		{
+			Car car = new Car(currentStation);
+			parkingLot.add(car);
+		}
+	}
+
+	//Method makeCars will create new car objects
+	public void makePassengers() 
+	{
+		//Random number generator
+		Random rand = new Random();
+
+		int nPassengers = 1; //rand.nextInt(3) + 1;
+
+		//For loop will create less than number of cars iterations
+		for (int i = 0; i < nPassengers; i++) {
+			Passenger passenger = new Passenger(currentStation);
+			onStation.add(passenger);
+		}
+	}
+
+	//Method pickUp will simulate pickUp of passengers
+	public void pickUp() 	
+	{
+
+		for (Car car : parkingLot) 
+		{
+
+			if (car.onBoard.size() < 3) 
+			{
+
+				for (Passenger passenger : onStation) 
+				{
+
+					if (passenger.isGoing()) 
+					{
+						
+						if (car.getEnd() > passenger.getEnd()) 
+						{
+							
+							car.onBoard.add(passenger);
+							passenger.gone();
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//Method dropOff will simulate dropOff of passengers
+	public void dropOff() 
+	{
+		for (Car car : parkingLot) 
+		{
+			//For loop will create less than the size of car.onBoard
+			for (int i = 0; i < car.onBoard.size(); i++) 
+			{
+
+				//If statement will test values
+				if (car.onBoard.get(i).getEnd() == currentStation) 
+				{
+					miles += car.onBoard.get(i).getEnd() - car.onBoard.get(i).getStart();
+					car.onBoard.remove(i);
+				}
+			}
+
+		}
+	}
+
+	//Method getMiles will return the number of miles
+	public int getMiles() 
+	{
+		return miles;
+	}
+
+}
+		

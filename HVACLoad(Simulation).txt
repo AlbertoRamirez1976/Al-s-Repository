@@ -1,0 +1,23 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Midterm					    */	
+/* Date: 7/28/21                                    */
+/* This midterm project program will calculate the  */
+/* heating and cooling loads for a typical 	    */
+/* residence.				   	    */
+/****************************************************/
+package HVACLoad;
+
+        
+public class HVACLoadSimulation 
+{
+	public static void main(String[] args) 
+	{
+		HVACLoad load = new HVACLoad();
+		load.getInputs();
+		double heat = load.findHeatingLoad();
+		double cool = load.findCoolingLoad();
+		load.printCapacities(heat, cool);
+	}
+}

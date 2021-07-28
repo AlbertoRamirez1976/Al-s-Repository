@@ -1,0 +1,61 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 6 Assignment				    */	
+/* Assignment 6 Program: P8.3                       */
+/* Date: 7/27/21                                    */
+/* This program simulates a car sharing system	    */
+/* in which a commuter picks up and drops off	    */
+/* passengers at designated stations		    */
+/****************************************************/
+package Car;
+
+import java.util.*;
+
+public class Passenger 
+{
+
+	//Local variable declaration
+	private int start;//Variable will be assigned to start value
+	private int end;//Variable will be assigned to ending value
+	private boolean go;//Variable boolean type will be assigned a primitive value
+
+	//Constructor Passenger class
+	public Passenger(int currentStation) 
+	{
+			//Random number generator will generate random values/object for the class
+			Random rand = new Random();
+			this.start = currentStation;//Reference object calls on the start method
+			this.end = rand.nextInt(31 - start) + start;//Reference object calls on the end method
+			this.go = true;//Reference object calls on the go method and returns a primitive value
+	}
+
+		//Method getStart will return start value
+		public int getStart() 
+		{
+			return start;
+		}
+
+		//Method getEnd will return ending value
+		public int getEnd() 
+		{
+			return end;
+		}
+
+		//Method boolean isGoing will return the primitive value for the variable go
+		public boolean isGoing() 
+		{
+			return go;
+		}
+
+		//Method gone will return the value of the reference object which calls on the go method
+		public void gone() 
+		{
+			this.go = false;
+		}
+}
+
+
+
+
+

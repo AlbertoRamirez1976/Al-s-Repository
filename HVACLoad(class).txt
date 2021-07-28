@@ -1,0 +1,163 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Midterm					    */	
+/* Date: 7/28/21                                    */
+/* This midterm project program will calculate the  */
+/* heating and cooling loads for a typical 	    */
+/* residence.				   	    */
+/****************************************************/
+package HVACLoad;
+
+import java.util.Scanner;
+
+public class HVACLoad 
+{
+	//Constant variable declaration and initialization
+	private double roofArea = 1500.0;//Constant variable roofArea is assigned the value of 1500.0
+	private double perimeter = 140.0;//Constant variable perimeter is assigned the value of 140.0
+	private double height = 18.0;//Constant variable building height is assigned the value of 18.0
+	private double windowArea = 400.0;//Constant variable window area is assigned the value of 400.0
+	private double westWindowArea = 80.0;//Constant variable west  window area is assigned the value of 80.0
+	private double roofU = 0.04;//Constant variable roof u is assigned the value of 0.04
+	private double wallU = 0.10;//Constant variable wall u is assigned the value of 0.10
+	private double windowU = 0.5;//Constant variable window u is assigned the value of 0.5
+	private double winterOutdoorTemperature = 2.0;//Constant variable winter outdoor temperature is assigned the value of 2.0
+	private double summerOutdoorTemperature = 100;//Constant variable summer outdoor temperature is assigned the value of 100
+	private double summerOutdoorHumidity = 0.013;//Constant variable summer outdoor humidity is assigned the value of 0.013
+	private double infiltration = 200;//Constant variable infiltration is assigned the value of 200
+	private double people = 3;//Constant variable number of people is assigned the value of 3
+	private double electrical = 1500;//Constant variable electrical is assigned the value of 1500
+
+	//Method getInput will capture user input
+	public void getInputs() 
+	{
+		Scanner in = new Scanner(System.in);
+		
+		//Banner display
+		System.out.println("HVAC Load Calculation:\n");
+		
+		System.out.print("Enter total roof area in square ft: ");
+		roofArea = in.nextDouble();//Variable roofArea will be assigned the value of the user input
+		
+		System.out.print("Enter building perimeter in ft: ");
+		perimeter = in.nextDouble();//Variable perimeter will be assigned the value of the user input
+
+		System.out.print("Enter building height in ft: ");
+		height = in.nextDouble();//Variable building height will be assigned the value of the user input
+
+		System.out.print("Enter total window area in square ft: ");
+		windowArea = in.nextDouble();//Variable windowArea will be assigned the value of the user input
+
+		System.out.print("Enter west window area area in square ft: ");
+		westWindowArea = in.nextDouble();//Variable westWindowArea will be assigned the value of the user input
+
+		System.out.print("Enter roof U-value: ");
+		roofU = in.nextDouble();//Variable roofU will be assigned the value of the user input
+
+		System.out.print("Enter wall U-value: ");
+		wallU = in.nextDouble();//Variable wallU will be assigned the value of the user input
+
+		System.out.print("Enter window U-value: ");
+		windowU = in.nextDouble();//Variable windowU will be assigned the value of the user input
+
+		System.out.print("Enter winter outdoor temperature in deg F: ");
+		winterOutdoorTemperature = in.nextDouble();//Variable winterOutdoorTemperature will be assigned the value of the user input
+		
+		System.out.print("Enter summer outdoor temperature in deg F: ");
+		summerOutdoorTemperature = in.nextDouble();//Variable summerOutdoorTemperature will be assigned the value of the user input
+
+		System.out.print("Enter summer outdoor humidity ratio: ");
+		summerOutdoorHumidity = in.nextDouble();//Variable summerOutdoorHumidity will be assigned the value of the user input
+		
+		System.out.print("Enter infiltration in CFM: ");
+		infiltration = in.nextDouble();//Variable infiltration will be assigned the value of the user input
+
+		System.out.print("Enter number of people present: ");
+		people = in.nextDouble();//Variable people will be assigned the value of the user input
+
+		System.out.print("Enter electrical use in Watts: ");
+		electrical = in.nextDouble();//Variable electrical will be assigned the value of the user input
+
+		System.out.println();//Blank space
+		
+		in.close();//Scanner function closure
+	}
+	
+	//Method findHeatingLoad will calculate the  heating load and return the value
+	public double findHeatingLoad() 
+	{
+		final double winterIndoorTemperature = 72;
+		double tempDiff = winterIndoorTemperature - winterOutdoorTemperature;
+		
+		double roofLoad = roofArea * roofU * tempDiff;
+		double windowLoad = windowArea * windowU * tempDiff;
+		double wallLoad = netWallArea() * wallU * tempDiff;
+		double infil = infiltration * 1.08 * tempDiff;
+		
+		double load = roofLoad + windowLoad + wallLoad + infil;
+		return load;//Value represents the result from the winter indoor temperature, load, difference and returning the winter heating load in BTUH
+	}
+	
+	//Method findCoolingLoad will calculate the cooling load and return the value
+	public double findCoolingLoad() 
+	{
+		double sensible = findCoolingSensibleLoad();
+		double latent =  findCoolingLatentLoad();
+			
+		double load = sensible + latent;
+		return load;//Value represents the result from the summer heating load
+	}
+	
+	//Method findCoolingSensibleLoad will calculate the cooling sensible load and return the value
+	public double findCoolingSensibleLoad() 
+	{
+		final double summerIndoorTemperature = 76;
+		final double solarGain = 193;
+		double tempDiff = summerOutdoorTemperature - summerIndoorTemperature;
+			
+		double roofLoad = roofArea * roofU * tempDiff;
+		double windowLoad = windowArea * windowU * tempDiff;
+		double wallLoad = netWallArea() * wallU * tempDiff;
+		double infil = infiltration * 1.08 * tempDiff;
+		double solar = solarGain * westWindowArea;
+		double elec = electrical * 3.416;
+		double p = 250 * people;
+			
+		double load = solar + roofLoad + windowLoad + wallLoad + infil + elec + p;
+		return load;//Value represents the result from the summer indoor temperature, west solar gain, summer temperature difference, the sensible cooling load and returning the summer sensible load in BTUH
+	}
+	
+	//Method printCapacities will calculate the tons and returns the value
+	public void printCapacities(double heating, double cooling) 
+	{
+		heating *= 1.3;
+		cooling *= 1.1;
+			
+		int ctons = (int)(cooling / 12000 + .5);//Multiplies the input heating load by the 1.3 warm-up factor and the input cooling load by the 1.1 safety factor
+			
+		System.out.println(String.format("Heating Load = %.1f BTU per hour", heating));
+		System.out.println(String.format("Cooling Load = %.1f BTU per hour\n\tor approximately %d tons", cooling, ctons));
+	}
+	
+	//Method findCoolingLoad will calculate the  cooling load and return the value
+	public double findCoolingLatentLoad() 
+	{
+		final double summerIndoorHumidity = .01;
+		double humidDiff = summerOutdoorHumidity - summerIndoorHumidity;
+		
+		double infil = infiltration * 4675 * humidDiff;
+		double p = 200 * people;
+		
+		return infil + p;//Value represents the result from the summer indoor humidity ration, difference, the latent cooling load and returning the summer heating load in BTUH
+	}
+	
+	
+	//Method netWallRea will calculate the perimeter and return the value
+	public double netWallArea() 
+	{
+		return perimeter * height - windowArea;//Value will be utilized by the other two methods (findCoolingSensibleLoad and findHeatingLoad)
+	}
+	
+	
+}
