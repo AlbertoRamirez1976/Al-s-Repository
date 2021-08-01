@@ -1,0 +1,59 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */	
+/* Assignment 7 Program: P9.3                       */
+/* Date: 7/30/21                                    */
+/* This program implements a superclass Appointment */
+/* and a subclass Onetime, Daily, and Monthly	    */
+/* User inputs a date and the appointments 	    */
+/* is displayed	   				    */
+/****************************************************/
+package appointmentProgram;
+
+import java.util.Scanner;
+
+public class AppointmentTest
+{
+	//Main method
+	public static void main(String[] args)
+	{
+		//Class object creation and initialization
+		Appointment[] appointments = new Appointment[3];
+
+		//Class object assigned the value of the 0th array index
+		appointments[0] = new Daily(2021, 7, 30, "Clean the car.");
+
+		//Class object assigned the value of the 1st array index
+		appointments[1] = new Monthly(2021, 10, 5, "Business trip.");
+	
+		//Class object assigned the value of the 2nd array index
+		appointments[2] = new Onetime(2021, 11, 23, "Visit Grandma for Thanksgiving.");
+
+		//Output
+		System.out.println("Enter a date (year, month, day) to list" + " appointments: ");
+
+		//Prompt for user input
+		Scanner in = new Scanner(System.in);
+		
+		//Variable initialization with user input
+		int year = in.nextInt();
+		int month = in.nextInt();
+		int day = in.nextInt();
+
+		in.close();//Scanner function closed
+		
+		//For loop will create iterations
+		for(int i = 0; i < appointments.length; i++)
+		{
+			if(appointments[i].occursOn(year, month, day))
+			{
+				System.out.println(appointments[i]. toString());
+			}
+
+		}
+
+	}
+}
+
+

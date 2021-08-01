@@ -1,0 +1,92 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: P10.2                  */
+/* Date: 7/31/21                                    */
+/* This program implements a class PrimeSequence    */
+/* that produces the sequence of prime numbers	    */
+/****************************************************/
+package sequenceProgram;
+
+public class PrimeSequenceGenerator
+{	
+	//Local variable declaration
+	private int arrayOfPrime[];//Array will hold a sequence of Prime numbers
+	private int size;//Variable will be assigned the value of array size
+	
+	//Constructor class PrimeSequenceTester will not hold any parameters
+	public PrimeSequenceGenerator()
+	{
+		//Class object(.this)will call on method size
+		this.size = 0;
+	}
+
+	//Constructor class PrimeSequenceTester will not hold a parameter set to the size of the array
+	public PrimeSequenceGenerator(int size)
+	{
+		//Array for Array of Primes will be initialized to size
+		arrayOfPrime = new int[size];
+
+		//Class object(.this)will call on method size
+		this.size = size;
+	}
+
+	//Method class will set the value of the variable size
+	public void setSize(int size)
+	{
+		//Class object(this.) will call on the method size
+		this.size = size;
+	}
+
+	//Method class generatePrime Numbers will acquire an integer value and an object
+	public void generatePrimeNumbers(int size, PrimeSequence ps)
+	{
+		//Variable size is initialized
+		setSize(size);
+
+		//Class object calls on a method
+		generatePrimeNumbers(ps);
+	
+	}
+
+	//Method class generatePrime Numbers will generate a sequence of Prime numbers 
+	public void generatePrimeNumbers(PrimeSequence ps)
+	{
+		//Variable declaration and initialization
+		int prime = 0;//Variable will be assigned the value of the method PrimeSequence
+		int i = 0;//Variable will be utilized for loop iterations
+
+		//Array initialization
+		arrayOfPrime = new int[size];
+
+		//While loop will be initialized to create iterations that will find Prime numbers 	
+		while( i < size)
+		{
+			//Method call
+			prime = ps.next();
+		
+			//If statement will test values
+			if(prime != 0)
+			{
+				arrayOfPrime[i] = prime;//Variable prime will be assigned to the array of Prime
+				i++;//Increment operator assigned to iteration variable in order to increase iterations
+			
+			}
+		}
+	
+	}
+
+
+		//Method will display the sequence of Prime numbers
+		public void display()
+		{
+			System.out.println("The sequence of " + size + " prime numbers is: ");
+			
+			//For loop will create iterations
+			for(int i = 0; i < size; i++)
+			{
+				System.out.println(arrayOfPrime[i]);
+			}	
+		}
+}

@@ -1,0 +1,72 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */	
+/* Assignment 7 Program: P9.1                       */
+/* Date: 7/30/21                                    */
+/* This program implements a class Clock	    */
+/* whose getHours and getMinutes methods	    */
+/* return the current time at your location	    */
+/****************************************************/
+package clockProgram;
+
+public class ClockTest
+{
+	//Main method
+	public static void main(String[] args)
+	{
+		//Class object
+		Clock clock = new Clock();
+		
+		//Output of the current hours
+		System.out.println("Current Hour: " + clock.getHours());
+
+		//Output of the current minutes
+		System.out.println("Current Minutes: " + clock.getMinutes());
+
+		//Output of the current time
+		System.out.println("Current Time: " + clock.getTime());
+
+		//Output of the world clock with an offset of three hours ahead
+		WorldClock worldClock = new WorldClock(3);
+		System.out.println("\nCurrent World Time which is three time zones ahead: ");
+		
+		//Output of the current hours with an offset
+		System.out.println("Current Hour: " + worldClock.getHours());
+
+		//Output of the current minutes with an offset
+		System.out.println("Current Minutes: " + worldClock.getMinutes());
+
+		//Output of the current time with an offset
+		System.out.println("Current Time: " + worldClock.getTime());
+
+		//Output of the current time for the second time
+		System.out.println("\nCurrent Time displayed once again: ");
+
+		//Method call once again for the original method with new values
+		//Output of the current hours
+		System.out.println("Current Hour: " + clock.getHours());
+
+		//Output of the current minutes
+		System.out.println("Current Minutes: " + clock.getMinutes());
+
+		//Output of the current time
+		System.out.println("Current Time: " + clock.getTime());
+
+		//Output of the world clock with an offset of -3
+		WorldClock worldClock2 = new WorldClock(-3);
+		System.out.println("\nCurrent World Time which is three time zones behind: ");
+		
+		//Output of the current hours with an offset
+		System.out.println("Current Hour: " + worldClock2.getHours());
+
+		//Output of the current minutes with an offset
+		System.out.println("Current Minutes: " + worldClock2.getMinutes());
+
+		//Output of the current time with an offset
+		System.out.println("Current Time: " + worldClock2.getTime());
+	
+	}
+
+
+}

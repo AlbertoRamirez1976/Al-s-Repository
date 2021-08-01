@@ -1,0 +1,68 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */	
+/* Assignment 7 Program: P9.3                       */
+/* Date: 7/30/21                                    */
+/* This program implements a superclass Appointment */
+/* and a subclass Onetime, Daily, and Monthly	    */
+/* User inputs a date and the appointments 	    */
+/* is displayed	   				    */
+/****************************************************/
+package appointmentProgram;
+
+public class Appointment
+{
+	//Local variable declaration
+	private String description;//Variable will be assigned the value of description
+	private int year;//Variable will be assigned the value of the year
+	private int month;//Variable will be assigned the value of the month
+	private int day;//Variable will be assigned the value of the day
+
+	//Constructor class
+	public Appointment(int year, int month, int day, String description)
+	{
+		//Class object will be assigned the values of the year
+		this.year = year;
+		
+		//Class object will be assigned the values of the month
+		this.month = month;
+		
+		//Class object will be assigned the values of the day
+		this.day = day;
+
+
+		//Class object will be assigned the values of the description
+		this.description = description;
+
+	}
+
+	//Methods
+	public int getYear()//Method will return the year
+	{
+		return year;
+	}
+
+	public int getMonth()//Method will return the month
+	{
+		return month;
+	}
+
+	public int getDay()//Method will return the day
+	{
+		return day;
+	}
+
+	public boolean occursOn(int year, int month, int day)//Method will return the appointment date
+	{
+		return (year == this.year) && (month == this.month) && (day == this.day);
+	}
+
+	//Methods
+	public String toString()
+	{
+		return description;
+	}
+
+}
+

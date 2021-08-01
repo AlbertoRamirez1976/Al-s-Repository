@@ -1,0 +1,59 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 5 Assignment				    */	
+/* Assignment 5 Program: 	E7.22               */
+/* Date: 7/24/21                                    */
+/* This program adds a method and creates a 	    */
+/* new sequence				            */
+/****************************************************/
+package sequenceProgram;
+
+public class SequenceTest//Test class
+{
+
+	public static void main(String[] args) 
+	{
+
+		//A new sequence object is created and assigned to sequence number 1
+		Sequence s1 = new Sequence();
+
+		s1.add(1);
+
+		s1.add(4);
+
+		s1.add(9);
+
+		s1.add(16);
+		
+		//Output of sequence number 1
+		System.out.println("Original sequence: " + s1);
+		System.out.println("");//Blank line
+
+		
+		//A new sequence object is created and assigned to sequence number 2
+		Sequence s2 = new Sequence();
+
+		s2.add(9);
+
+		s2.add(7);
+
+		s2.add(4);
+
+		s2.add(9);
+
+		s2.add(11);
+
+		//Output of sequence number 1
+		System.out.println("Second sequence: " + s2);
+		System.out.println("");//Blank line
+
+		//The first sequence is appended to the second sequence
+		s1.append(s2);
+
+		//Output of sequence number 1 and 2 which is all appended to sequence number 1
+		System.out.println("Final sequence: " + s1);
+
+	}
+
+}

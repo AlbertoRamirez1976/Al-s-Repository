@@ -1,0 +1,24 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: P10.4                  */
+/* Date: 7/31/21                                    */
+/* This program implements a class 		    */
+/* FirstDigitDistribution which counts the 	    */
+/* distribution of the first digit of each value    */
+/****************************************************/
+package firstDigitDistributionProgram;
+
+//Class will create a list of perfect squares
+public class SquareSequence implements Sequence
+{
+	//Local variable declaration
+	private int num;//Variable will be utilized for iterations
+
+	public int next()
+	{
+		num++;//Increment operator assigned to the variable 
+		return num * num;
+	}
+}

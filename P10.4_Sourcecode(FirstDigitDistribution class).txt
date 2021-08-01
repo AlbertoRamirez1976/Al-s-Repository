@@ -1,0 +1,60 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: P10.4                  */
+/* Date: 7/31/21                                    */
+/* This program implements a class 		    */
+/* FirstDigitDistribution which counts the 	    */
+/* distribution of the first digit of each value    */
+/****************************************************/
+package firstDigitDistributionProgram;
+
+public class FirstDigitDistribution
+{
+	//Variable declaration
+	private int[] counters;
+
+	
+	//Constructor class will initialize variables
+	public FirstDigitDistribution()
+	{
+		counters = new int[10];
+	
+	}
+	
+	//Method class process will process values
+	public void process(Sequence seq, int valuesToProcess)
+	{
+		for(int i = 1; i <= valuesToProcess; i++)
+		{
+			int value = seq.next();
+			int firstDigit = value % 10;
+			
+			while(value < -9 || 9 < value)
+			{
+				value /= 10;
+			}
+			
+			counters[firstDigit]++;
+		}
+	}
+	
+	//Output method
+	public void display()
+	{
+		for(int i = 0; i < counters.length; i++)
+		{
+			System.out.printf("%3d: (%3d): ", i, counters[i]);
+	        for(int j = 0; j < counters[i]; j++)
+	        {
+	        	System.out.print("*");
+	        }
+	         
+	        System.out.println();
+		}
+	}
+	
+
+}
+

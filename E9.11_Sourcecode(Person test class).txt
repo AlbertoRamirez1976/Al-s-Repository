@@ -1,0 +1,35 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */
+/* Assignment 7     Program: E9.11                  */
+/* Date: 7/30/21                                    */
+/* This program implements a superclass Person 	    */
+/* with two classes that inherent from it	    */
+/****************************************************/
+package personSuperClass;
+
+public class PersonTest
+{
+	//Main class
+	public static void main(String[] args)
+	{
+		//Method calls
+		Person p1 = new Person("Bob" , 1976);
+		Person p2 = new Student("Alice", 1986 , "English");
+		Person p3 = new Instructor("John" , 1996 , 75000 );
+		
+		//Outputs
+		System.out.println("Output of the Person SuperClass: \n");
+		System.out.println("A person has a name and a year of birth: \n");
+		System.out.println(p1);
+		System.out.println("");//Blank line
+		System.out.println("A student has a name, year of birth and a major: \n");
+		System.out.println(p2);
+		System.out.println("");//Blank line
+		System.out.println("An instructor has a name, year of birth and a salary: \n");
+		System.out.println(p3);
+
+
+	}
+}

@@ -1,0 +1,18 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: P10.2                  */
+/* Date: 7/31/21                                    */
+/* This program implements a class PrimeSequence    */
+/* that produces the sequence of prime numbers	    */
+/****************************************************/
+package sequenceProgram;
+
+//Class will contain the unimplemented method next()
+public interface Sequence
+{	
+	public int next();	
+		
+}
+

@@ -1,0 +1,32 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */
+/* Assignment 7     Program: E9.11                  */
+/* Date: 7/30/21                                    */
+/* This program implements a superclass Person 	    */
+/* with two classes that inherent from it	    */
+/****************************************************/
+package personSuperClass;
+
+public class Instructor extends Person
+{
+
+	//Local variable declaration
+	private int salary;//Variable will be assigned the name
+		
+	//Instructor class
+	public Instructor(String name, int yearOfBirth, int salary)
+	{
+		super(name, yearOfBirth);
+		this.salary = salary;
+		
+	}
+
+	//Method will convert the Instructor object to a string
+	public String toString()
+	{
+		return super.toString() +  " "  + "$" + salary;
+	}
+
+}

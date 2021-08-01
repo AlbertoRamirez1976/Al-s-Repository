@@ -1,0 +1,57 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 9 Assignment				    */
+/* Assignment 9     Program: P11.7                  */
+/* Date: 8/1/21                                     */
+/* This program reads in a set of coin descriptions */
+/* from a file. It throws an exception if the 	    */
+/* current line is not properly formatted. Then     */
+/* it prints the total value                        */
+/****************************************************/
+package coinProgram;
+
+import java.io.FileNotFoundException;//Imports runtime constructor exceptions
+import java.util.*;//Package contains a collection framework of utility classes
+
+public class Coin
+{
+    //Variable declaration
+    String coinName;//Variable is assigned the name of the coin
+    int coinValue;//Variable is assigned the value of the coin
+   
+    	void read(Scanner in) throws FileNotFoundException 
+	{
+        
+    	//The try and catch blocks are part of constructing an exception handler
+    	try 
+        {
+            String line = in.nextLine();//Reads line in file
+            String words[] = line.split(" ");//Checks words within file
+
+            	//If statement will validate values
+            	if(words.length!=2)
+            	{
+                //Throws exception if format is not correct
+                throw new FileNotFoundException();
+            	}
+            	else
+            	{
+            		
+            		String coinName = words[0];
+
+            		//Exception is thrown by a catch block if the second value is not integer
+            		int value = Integer.parseInt(words[1]);
+
+            		this.coinName = coinName;
+            		this.coinValue = value;
+            	}
+
+        		}
+        		catch (Exception e)
+        		{
+        			throw new FileNotFoundException();
+        		}
+    }
+
+}

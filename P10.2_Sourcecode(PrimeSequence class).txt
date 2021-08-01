@@ -1,0 +1,54 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: P10.2                  */
+/* Date: 7/31/21                                    */
+/* This program implements a class PrimeSequence    */
+/* that produces the sequence of prime numbers	    */
+/****************************************************/
+package sequenceProgram;
+
+//Class will implement the interface Sequence in order to generate a sequence of Prime numbers
+public class PrimeSequence implements Sequence
+{	
+	//Local variable declaration
+	private int num;//Variable will be assigned the value of a sequence
+	
+	//Constructor class PrimeSequence will initialize the variable num
+	public PrimeSequence()
+	{
+		num = 1;//Variable initialized to the value of 1
+	}	
+
+	//Method declaration
+	public int next()
+	{
+		//Variable will utilize the increment operator in order to increase value
+		num++;
+
+		//Boolean value initialization
+		boolean flag = true;
+		
+		//For loop will create iterations
+		for(int i = 2; i <= num / 2; i++)
+		{
+			//If statement will validate the i value for false
+			if(num % i == 0)
+			{
+				//Flag value will be set to false
+				flag = false;
+				break;//Exit loop function	
+			}
+		}
+		
+			//If statement will validate the i value for true and return the num variable value
+			if(flag)
+			{
+				return num;
+			}
+			else
+				return 0;
+	}
+		
+}

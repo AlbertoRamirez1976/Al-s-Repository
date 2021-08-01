@@ -1,0 +1,51 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */	
+/* Assignment 7 Program: P9.1                       */
+/* Date: 7/30/21                                    */
+/* This program implements a class Clock	    */
+/* whose getHours and getMinutes methods	    */
+/* return the current time at your location	    */
+/****************************************************/
+package clockProgram;
+
+import java.time.LocalTime;
+
+public class Clock
+{
+	//Method classes
+	public int getHours()//Method will acquire the hours
+	{
+		//Class object
+		LocalTime currentTime = LocalTime.now();
+		
+		//String object
+		String nowTimeStr = currentTime.toString();
+
+		//Output
+		return Integer.parseInt(nowTimeStr.substring(0,2));
+	}
+
+	public int getMinutes()//Method will acquire the minutes
+	{
+		//Class object
+		LocalTime currentTime = LocalTime.now();
+		
+		//String object
+		String nowTimeStr = currentTime.toString();
+
+		//Output
+		return Integer.parseInt(nowTimeStr.substring(3,5));
+	}
+
+	public String getTime()//Method will acquire the time as a String
+	{
+
+		//Output after acquiring the hours and minutes
+		return getHours() +  " : "  + getMinutes();
+	}
+
+}
+
+		

@@ -1,0 +1,26 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */	
+/* Assignment 7 Program: P9.3                       */
+/* Date: 7/30/21                                    */
+/* This program implements a superclass Appointment */
+/* and a subclass Onetime, Daily, and Monthly	    */
+/* User inputs a date and the appointments 	    */
+/* is displayed	   				    */
+/****************************************************/
+package appointmentProgram;
+
+public class Onetime extends Appointment
+{
+
+	//Constructor class Onetime will initialize the appointment and sets in a super class
+	public Onetime(int year, int month, int day, String description)
+	{
+		//Reference variable super will be initialized with parameters
+		super(year, month, day, description);
+	}
+
+}
+
+

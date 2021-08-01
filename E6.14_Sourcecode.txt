@@ -1,0 +1,52 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 5 Assignment				    */
+/* Assignment 5     Program: E6.14	            */
+/* Date: 7/23/21                                    */
+/* This Java program reads a number and prints all  */
+/* of its binary digits		                    */
+/****************************************************/
+
+package binarydigitProgram;
+
+import java.util.Scanner;
+
+public class binarydigitProgram
+{
+	
+    public static void main(String[] args)
+    {
+
+	//Variable declaration
+	int num_input;//Variable will be assigned the value of the user input
+
+	//Prompt will ask the user to input a number
+	System.out.println("Enter a number: ");
+	
+	//Scanner function will capture the user's input and assign it to a class object
+	Scanner in = new Scanner(System.in);
+
+	//Scanner object is assigned user input value
+	num_input = in.nextInt();
+	
+	//Scanner function closed
+	in.close();
+	
+	//While loop function will create iterations while true
+	while(num_input > 0)
+	{
+		//Output of the remainder
+		System.out.println("");//Blank line
+		System.out.println(num_input % 2);
+	
+		//Variable redeclaration will replace the number with number / 2
+		num_input = num_input / 2;
+	
+
+	}
+
+
+    }
+        
+}

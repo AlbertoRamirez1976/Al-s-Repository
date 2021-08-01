@@ -1,0 +1,53 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 5 Assignment				    */	
+/* Assignment 5 Program: 	E7.22               */
+/* Date: 7/24/21                                    */
+/* This program adds a method and creates a 	    */
+/* new sequence				            */
+/****************************************************/
+package sequenceProgram;
+
+import java.util.*;
+
+	public class Sequence 
+	{
+		//Array value declaration	
+		private ArrayList<Integer> values;
+
+	//Method sequence will assign the value of array list to the variable values
+	public Sequence() 
+	{
+
+		values = new ArrayList<Integer>();
+
+	}
+
+	//Method add will append the add function to the variable values
+	public void add(int n) 
+	{
+
+		values.add(n);
+
+	}
+
+	//Method string to string will return the value of the variable values which calles the method string
+	public String toString() 
+	{
+
+		return values.toString();
+
+	}
+
+	//Method sequence append will return the final sequence [1,4,9,16,9,7,4,9,11]
+	public Sequence append(Sequence other) 
+	{
+
+		values.addAll(other.values);
+
+		return this;
+
+	}
+
+}

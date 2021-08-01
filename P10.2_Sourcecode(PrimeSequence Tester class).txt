@@ -1,0 +1,40 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: P10.2                  */
+/* Date: 7/31/21                                    */
+/* This program implements a class PrimeSequence    */
+/* that produces the sequence of prime numbers	    */
+/****************************************************/
+package sequenceProgram;
+
+public class PrimeSequenceTester
+{	
+	//Main method
+	public static void main(String args[])
+	{
+		//Constructor will create a class object of the PrimeSequenceGenerator
+		PrimeSequenceGenerator primesequencegenerator1 = new PrimeSequenceGenerator();
+
+		//Class object will call on a method in order to generate prime numbers
+		primesequencegenerator1.generatePrimeNumbers(20, new  PrimeSequence());
+
+		//Class object will call on the display method in order to display prime numbers 
+		primesequencegenerator1.display();
+		System.out.println();
+
+		//Constructor will create another class object of the PrimeSequenceGenerator class with a single parameterized value
+		PrimeSequenceGenerator primesequencegenerator2 = new PrimeSequenceGenerator(10);
+	
+		//Class object of the PrimeSequence class is created
+		PrimeSequence primesequence = new PrimeSequence();
+
+		//Class object will call on a method in order to generate prime numbers
+		primesequencegenerator2.generatePrimeNumbers(primesequence);
+
+		//Class object will call on the display method in order to display prime numbers 
+		primesequencegenerator2.display();
+
+	}
+}

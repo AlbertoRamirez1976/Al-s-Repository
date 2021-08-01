@@ -1,0 +1,32 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */
+/* Assignment 7     Program: E9.11                  */
+/* Date: 7/30/21                                    */
+/* This program implements a superclass Person 	    */
+/* with two classes that inherent from it	    */
+/****************************************************/
+package personSuperClass;
+
+public class Student extends Person
+{
+
+	//Local variable declaration
+	private String major;//Variable will be assigned the name
+		
+	//Person class
+	public Student(String name, int yearOfBirth, String major)
+	{
+		super(name, yearOfBirth);
+		this.major = major;
+		
+	}
+
+	//Method
+	public String toString()
+	{
+		return super.toString() +  " "  +  major;
+	}
+
+}

@@ -1,0 +1,86 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 9 Assignment				    */
+/* Assignment 9     Program: E11.10                 */
+/* Date: 8/1/21                                     */
+/* This program replaces each line of a file	    */
+/* with its reverse.				    */
+/****************************************************/
+package reverseProgram;
+
+import java.io.File;//Class file contains methods for working with path names, files, and directories
+import java.io.FileNotFoundException;//Imports runtime constructor exceptions
+import java.util.Scanner;//Class for obtaining the input of primitive types like strings
+
+public class Reverse 
+{
+    	public static void main(String[] args) throws FileNotFoundException 
+	{
+        
+    	//Variable declaration
+    	String file_name;
+    	
+    	//Banner message
+    	System.out.print("Welcome to the Reverse Program \n");
+    	System.out.println("");//Blank line
+    	
+    	//If else statement will validate values and display results
+        if (args.length == 1) //If true
+        {
+            file_name = args[0];
+        } 
+        else 
+        {
+            	//File path to enter: C:\\Users\\alber\\Desktop\\HelloPrinter.txt
+        	System.out.print("Please enter the absolute file path(name): \n");
+        
+        	//Scanner function will read file contents into the program
+        	Scanner sc = new Scanner(System.in);
+            
+        	//Variable file name will be assigned the value of the file contents
+        	file_name = sc.next();
+            
+        	//Scanner function closed
+        	sc.close();
+        }
+        
+        Scanner fr=null;
+
+	try//Try function will test for errors
+	{
+       	fr = new Scanner(new File(file_name));
+	}
+	catch(FileNotFoundException e)//Catch function will catch errors and display an error message
+
+	{
+
+		System.out.println("Sorry the fiile was not found. Please check and rerun the program");
+
+		System.exit(0);//Exit the exception function
+
+	}
+	
+	System.out.println("");//Blank line
+	System.out.println("The reversed file is as follows: ");
+	System.out.println("");//Blank line
+
+	//While loop will create iterations and perform the reverse function
+   	while (fr.hasNextLine()) 
+	{
+           String line = fr.nextLine();
+           line = reverse(line);//Reverse function will accept a string as a parameter
+           System.out.println(line);//Output of the reversed string
+            
+            
+            
+    	}
+        fr.close();//Scanning function closed
+    	}
+
+   	//Method for reversing a string
+    	public static String reverse(String line) 
+	{
+        return new StringBuilder(line).reverse().toString();
+    	}
+}

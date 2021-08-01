@@ -1,0 +1,37 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: P10.4                  */
+/* Date: 7/31/21                                    */
+/* This program implements a class 		    */
+/* FirstDigitDistribution which counts the 	    */
+/* distribution of the first digit of each value    */
+/****************************************************/
+package firstDigitDistributionProgram;
+
+//Class tester
+public class FirstDigitDistributionTester
+{
+	public static void main(String[] args)
+	{
+		
+		//Output for a square sequence
+		FirstDigitDistribution distribution1 = new FirstDigitDistribution();
+		System.out.println("The first digit distribution for a square sequence is:\n" );
+		distribution1.process(new SquareSequence(), 1000);//Class object calls on random number method
+		distribution1.display();//Class object calls on the display method in order to display results
+
+		System.out.println("" );//Blank Line
+		
+		//Output for a random sequence
+		FirstDigitDistribution distribution2 = new FirstDigitDistribution();
+		System.out.println("The first digit distribution for a random sequence is:\n" );
+		distribution2.process(new RandomSequence(), 1000);//Class object calls on random number method
+		distribution2.display();//Class object calls on the display method in order to display results
+
+
+	}
+
+}
+

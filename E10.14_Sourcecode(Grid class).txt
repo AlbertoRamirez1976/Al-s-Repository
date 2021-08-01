@@ -1,0 +1,132 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: E10.14                 */
+/* Date: 7/31/21                                    */
+/* This program implements a class Grid that	    */
+/* stores measurements in a rectangular grid	    */
+/****************************************************/
+package gridProgram;
+
+import java.util.ArrayList;
+
+public class Grid
+{	
+	public class Location
+	{
+		//Local variable declaration
+		private int row;//Variable will be assigned the value of the row
+		private int column;//Variable will be assigned the value of the column
+		private String description;//Variable will be assigned the string literal for the string  variable description
+
+		//Constructor class definition for an inner class
+		public Location(int row, int column, String description)
+		{
+			//Class object(.this) will call a method
+			this.row = row;
+			this.column = column;
+			this.description = description;
+		}
+		
+		//Method declaration for the method getRow which will acquire the row variable and return its value
+		public int getRow()
+		{
+			return row;
+		}
+
+
+		//Method declaration for the method getColumn which will acquire the column variable and return its value
+		public int getColumn()
+		{
+			return column;
+		}
+
+
+		//Method declaration for the method getDescription which will acquire the description variable and return its value
+		public String getDescription()
+		{
+			return description;
+		}
+
+		//Method declaration for the String method setDescription which will set the description variable and return its value
+		public void setDescription(String description)
+		{
+			this.description = description;
+		}
+
+		
+		//Method declaration for the boolean method equals which will compare locations for equality and then return its value
+		public boolean equals(Object obj)
+		{
+			Location otherLocation = (Location)obj;
+			return(getRow() == otherLocation.getRow()) && (getColumn() == otherLocation.getColumn());
+			
+		}
+				
+	}
+
+		//Grid array declaration
+		//Variable declaration
+		private ArrayList<Location>grid;
+		private int rows;
+		private int columns;
+
+		//Constructor class
+		public Grid(int numRows, int numColumns)
+		{
+			//Array member initialization
+			grid = new ArrayList<>();
+			rows = numRows;
+			columns = numColumns;
+		}
+
+		//Method declaration for method add which will add a description to a variable
+		public void add(int row, int column, String description)
+		{
+			//If statement will validate the values of row and column
+			if(row >= rows || column >= columns)
+			return;
+		
+			//Class object is created
+			Location newLocation = new Location(row, column, description);
+
+			//If statement will validate location
+			if(!grid.contains(newLocation))
+			grid.add(newLocation);
+			
+			else
+			{
+				Location current = grid.get(grid.indexOf(newLocation));
+				current.setDescription(description);	
+			}
+
+		}
+
+			//Method declaration for the getDescription method which will acquire the description of a location
+			public String getDescription(int row, int column)
+			{
+				//If statement will validate the values of row and column
+			if(row >= rows || column >= columns)
+			return "Location not found";
+
+			//Class object for  a new location
+			Location newLocation = new Location(row, column, "");
+			
+			//If statement will validate grid
+			if(grid.contains(newLocation))
+			{
+				//Class object will return a value if true
+				Location current = grid.get(grid.indexOf(newLocation));
+				return current.getDescription();
+			}
+				return "No Description found";
+			}
+			
+			//Method declaration for ArrayList method which will return a list
+			public ArrayList<Location>getDescribedLocations()
+			{
+				return grid;
+			}
+
+}

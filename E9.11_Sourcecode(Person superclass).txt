@@ -1,0 +1,33 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */
+/* Assignment 7     Program: E9.11                  */
+/* Date: 7/30/21                                    */
+/* This program implements a superclass Person 	    */
+/* with two classes that inherent from it	    */
+/****************************************************/
+package personSuperClass;
+
+	//Person class
+	public class Person
+	{
+		//Local variable declaration
+		private String name;//Variable will be assigned the name
+		private int yearOfBirth;//Variable will be provided the D.O.B
+
+		//Constructor class will assign person object to method
+		public Person(String name, int yearOfBirth)
+		{
+			this.name = name;//Variable will be assigned to object
+			this.yearOfBirth = yearOfBirth;//Variable will be assigned to object
+		}
+
+		//Method converts the date of birth to a String
+		public String toString()
+		{
+			return name  +  " "  +  yearOfBirth;
+		}
+
+	}
+

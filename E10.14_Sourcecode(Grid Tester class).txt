@@ -1,0 +1,77 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: E10.14                 */
+/* Date: 7/31/21                                    */
+/* This program implements a class Grid that	    */
+/* stores measurements in a rectangular grid	    */
+/****************************************************/
+package gridProgram;
+
+public class GridTester
+{	
+	//Main class
+	public static void main(String[] args)
+	{
+		
+		//Class object Grid is created
+		Grid myGrid = new Grid(10, 10);
+		
+		//Output describing the action of adding a description
+		System.out.println("Adding descriptions to the rectangular grid...\n");
+	
+		//Class object will call method add
+		myGrid.add(0, 0, "Base measurement");
+
+		//Output describing the action of displaying the description at location (0, 0)
+		System.out.println("Description at location" + "(0,0) is: " + myGrid.getDescription(0, 0));
+
+		
+		//Class object will call method add
+		myGrid.add(1, 5, "Top Left Corner grid measurement");
+
+		//Output describing the action of displaying the description at location (1, 5)
+		System.out.println("Description at location" + "(1,5) is: " + myGrid.getDescription(1, 5));
+			
+		//Class object will call method add
+		myGrid.add(9, 9, "Top Right Corner grid measurement");
+
+		//Output describing the action of displaying the description at location (9, 9)
+		System.out.println("Description at location" + "(9,9) is: " + myGrid.getDescription(9, 9));
+
+		//Class object will call method add
+		myGrid.add(5, 9, "Bottom Right Corner grid measurement");
+
+		//Output describing the action of displaying the description at location (5, 9)
+		System.out.println("Description at location" + "(5,9) is: " + myGrid.getDescription(5, 9));
+
+		//Class object will call method add
+		myGrid.add(10, 10, "Bottom Left Corner grid measurement");
+
+		//Output describing the action of displaying the description at location (10, 10)
+		System.out.println("Description at location" + "(10,10) is: " + myGrid.getDescription(10, 10));
+
+		
+		//Output describing the modification
+		System.out.println("\nDescription change at location (0,0)..");
+		//Class object calls on the add method 
+		myGrid.add(0, 0, "New Base measurement");
+		
+		//Output of the modified description
+		System.out.println("\nDescription at location (0,0) is now: " + myGrid.getDescription(0, 0));
+
+		//Output of all the descriptions
+		System.out.println("\nDescription at all locations: \n");
+		
+		//For loop will validate values and return results
+		for(Grid.Location current: myGrid.getDescribedLocations())
+		{
+			System.out.println("Location (" + current.getRow() + "," + current.getColumn() + "): " + current.getDescription());
+		}	
+
+	}
+
+
+	}
+

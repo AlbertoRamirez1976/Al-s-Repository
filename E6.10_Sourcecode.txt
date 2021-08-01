@@ -1,0 +1,44 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 5 Assignment				    */
+/* Assignment 5     Program: E6.10                  */
+/* Date: 7/23/21                                    */
+/* This Java program reads a word and prints	    */ 
+/* in reverse		           		    */
+/****************************************************/
+package reversestringProgram;
+
+import java.util.*;
+
+public class reversestringProgram
+{
+	public static void main(String[] args)
+	{
+	
+		//Scanner utility is utilized in order to capture user input. A scanner object is created.
+		Scanner in = new Scanner(System.in);
+		
+		//Prompt will capture user input
+		System.out.println("Enter a string: ");
+		
+		//Reads user input and assigns the value to string variable.
+		String strLine = in.next();
+		
+		//Close scanner function
+		in.close();
+		
+		//Output
+		System.out.println("");//Blank line
+		System.out.println("The reverse string is: ");
+		
+		//For loop will create several iterations of the looping function which loops through each character in order to reverse them
+		for(int char_val = strLine.length() -1; char_val >= 0; char_val--)
+		{
+			//Loop will print out each character of a string per iteration
+			
+			System.out.print(strLine.substring(char_val, char_val+1));
+		} 
+	}		
+		
+}

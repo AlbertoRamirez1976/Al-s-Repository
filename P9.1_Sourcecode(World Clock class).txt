@@ -1,0 +1,62 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 7 Assignment				    */	
+/* Assignment 7 Program: P9.1                       */
+/* Date: 7/30/21                                    */
+/* This program implements a class Clock	    */
+/* whose getHours and getMinutes methods	    */
+/* return the current time at your location	    */
+/****************************************************/
+package clockProgram;
+
+import java.time.LocalTime;
+
+public class WorldClock extends Clock
+{
+	//Local variable declaration
+	private long offset;//Variable will be assigned the offset value
+
+	
+	//Constructor class will accept the offset
+	WorldClock(long offset)
+	{
+		//Class object is assigned the offset value
+		this.offset = offset;
+	}
+
+	//Method
+	public int getHours()//Method will return the hours with an offset
+	{
+		//Class object is created
+		LocalTime currentTime = LocalTime.now();
+		
+		//Class object is assigned the value of the offset
+		currentTime = currentTime.plusHours(offset);
+		
+		//String object
+		String nowTimeStr = currentTime.toString();
+
+		//Output
+		return Integer.parseInt(nowTimeStr.substring(0, 2));
+	}
+	
+	public int getMinutes()//Method will return the minutes with an offset
+	{
+		//Class object is created
+		LocalTime currentTime = LocalTime.now();
+		
+		//Class object is assigned the value of the offset
+		currentTime = currentTime.plusHours(offset);
+		
+		//String object
+		String nowTimeStr = currentTime.toString();
+
+		//Output
+		return Integer.parseInt(nowTimeStr.substring(3, 5));
+	}
+
+
+}
+
+		

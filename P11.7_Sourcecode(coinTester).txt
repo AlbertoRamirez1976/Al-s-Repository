@@ -1,0 +1,100 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 9 Assignment				    */
+/* Assignment 9     Program: P11.7                  */
+/* Date: 8/1/21                                     */
+/* This program reads in a set of coin descriptions */
+/* from a file. It throws an exception if the 	    */
+/* current line is not properly formatted. Then     */
+/* it prints the total value                        */
+/****************************************************/
+package coinProgram;
+
+import java.io.File;//Class file contains methods for working with path names, files, and directories
+import java.io.FileNotFoundException;//Imports runtime constructor exceptions
+import java.util.*;//Package contains a collection framework of utility classes
+
+
+public class CoinTester
+{
+    //Static ArrayList is part of the java.util.package which provides dynamic arrays
+    static ArrayList<Coin> readFile(String fileName) throws FileNotFoundException
+    {
+        
+    	//Class object is created
+    	ArrayList<Coin> coins = new ArrayList<>();
+        try//The try block is the first step in constructing an exception handler
+        {
+            	//File object is created by passing in a String that represents the name of a file
+        	File file = new File(fileName);
+            
+        	//Scanner function is assigned the value of the file object
+        	Scanner in = new Scanner(file);
+           
+        	//While loop will create iterations for handling read and add functions
+        	while (in.hasNext()){
+                Coin c = new Coin();
+                c.read(in);
+                coins.add(c);
+        }
+        }
+        catch (Exception e)//The catch block is part of the try block exception handler
+        {
+
+            throw new FileNotFoundException();//Exception signals that an attempt to open the file has failed
+        }
+        return coins;
+    }
+
+    public static void main(String[] args) 
+    {
+        String fileName ;
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Coin>coins = null;
+        
+        //Banner message
+        System.out.println("Welcome to the Coin Description Program\n");
+        
+        while (true)
+        {
+            try
+            {
+                //Note:
+            	//File path for the wrong file: C:\Users\alber\Desktop\Coins(bad).txt 
+            	//Note:
+            	//File path for the right file: C:\Users\alber\Desktop\Coins(good).txt 
+            	
+            	System.out.println("Please enter the absolute file path(name): \n");
+            	
+            	//Variable is assigned the value of the user input
+            	fileName = sc.next();
+                coins = readFile(fileName);
+                sc.close();//Scanning function closed
+            }
+            catch (Exception e)
+            {
+
+            	System.out.println("");//Blank line
+                System.out.println("Sorry, but the file format is not correct, please try again!");
+                System.out.println("");//Blank line
+                continue;
+            }
+            break;
+        }
+        //Variable declaration
+        int sum = 0;
+        
+        //For statement will validate value and return sum
+        for(Coin c:coins)
+        {
+            sum+=c.coinValue;//Increment operator is assigned to som variable
+        }
+        
+        //Final output
+        System.out.println("");//Blank line
+        System.out.println("Total value of coins = " + sum);
+
+    }
+
+}

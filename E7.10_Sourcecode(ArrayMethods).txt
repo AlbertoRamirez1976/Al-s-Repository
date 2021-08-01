@@ -1,0 +1,377 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 5 Assignment				    */	
+/* Assignment 5 Program: 	E7.10               */
+/* Date: 7/24/21                                    */
+/* This Java program writes array methods that      */
+/* carry out specific tasks for an array of	    */
+/* integers				            */
+/****************************************************/
+
+package arrayMethods;
+
+import java.util.*;
+
+public class arrayMethods
+{
+    
+    //Array variable declaration
+    private int[] values;//Array variable will be assigned an array value
+
+    //Constructor
+	public arrayMethods(int[] initialValues) 
+	{
+        	values = initialValues;//Variable will be assigned a value
+    }
+
+	 //Method will swap the first and last elements in the array	
+	public void swapFirstAndLast() 
+	{
+        //Variable declaration and initialization
+		int temp = values[0];
+        	
+		//Swapping function
+		values[0] = values[values.length-1];
+       	values[values.length-1] = temp;
+       	
+    }
+
+    //Method will shift all elements to the right by one and move the last element into the first position
+	public void shiftRight() 
+	{
+        
+		//Variable declaration and initialization
+		int temp = values[values.length-1];
+        	
+		//For loop will create iteration under the conditions
+		for (int i = values.length-1; i > 0; i--) 
+		{
+            	values[i] = values[i-1];
+        }
+       		 	values[0] = temp;//Temp value will be assigned to the element
+    	}
+
+
+	//Method will replace all even elements with zero
+    public void replaceZero() 
+	{
+        
+		//For loop will create iteration under the conditions
+		for (int i = 0;i < values.length;i++) 
+		{
+            //If statement will test a value
+			if (values[i]%2==0) 
+			{
+                	values[i] = 0;
+            }
+        }
+   	 }
+
+	//Method will replace each element except the first and last by the larger of its two neighbors
+   	public void replaceLarger() 
+	{
+        
+		//Variable declaration
+		int temp[] = new int[values.length];
+        	
+		//Swap function
+		temp[0] = values[0];
+        temp[values.length-1] = values[values.length-1];
+        	
+		//For loop will create iteration under conditions
+		for (int i = 1;i < values.length-1;i++) 
+		{
+            	temp[i] = Math.max(values[i-1], values[i+1]);
+        }
+       			values = temp;//Variable will be assigned temp value
+    }
+
+	//Method will remove middle element if the array length is odd, or the middle two elements if the length is even
+    public void removeMiddle() 
+	{
+        //If statement will test value
+		if (values.length%2==0) 
+		{
+            
+			//Variable declaration and initialization
+			int temp[] = new int[values.length-2];
+            int index = 0;
+            		
+			//For loop will create iterations while true
+			for (int i = 0;i < values.length;i++) 
+			{
+               
+				//If statement will test value under the condition
+				if (i != values.length/2 - 1 && i != values.length/2 ) 
+				{
+					//Array element will be assigned to the temp index
+					temp[index] = values[i];
+					index++;//Increment operator will increase index
+				}
+			}
+            		values = temp;//Temp value will be assigned to the values variable
+       }
+       else 
+		{
+            	//Array variable assignment
+				int temp[] = new int[values.length-1];
+            	int index = 0;
+            			
+				//For loop will create iteration while true
+				for (int i = 0;i < values.length;i++) 
+				{
+                			//If statement will test value
+					if (i != values.length/2) 
+					{
+                    		temp[index] = values[i];
+                    		index++;//Increment operator
+                	}
+				}
+            	values = temp;//Temp value will be assigned to the values variable
+        }
+    }
+
+    //Method will move all even elements to the front, otherwise preserving the order of the elements
+	public void moveToFront() 
+	{
+        //Array variable declaration and initialization
+		int temp[] = new int[values.length];
+        int index = 0;
+        		
+			//For loop will create iteration while true
+			for (int i = 0;i < values.length;i++) 
+			{
+            	//If statement will test value
+				if (values[i]%2==0) 
+				{
+                	temp[index] = values[i];
+                	index++;//Increment operator
+            	}
+        	}
+        		
+			//For loop will create iteration while true
+			for (int i = 0;i < values.length;i++) 
+			{
+            	//If statement will test value
+				if (values[i]%2!=0) 
+				{
+               			temp[index] = values[i];
+               			index++;//Increment operator
+            	}
+        	}
+       		values = temp;
+    }
+	
+	//Method will return the second-largets element in the array
+	public int secondLargest() 
+	{
+        
+		//Variable declaration and initialization to the maximum 
+		int max = Integer.MIN_VALUE;
+       
+		//For loop will create iteration while true
+		for (int i = 0;i < values.length;i++) 
+		{
+            //If statement will test for maximum value
+			if(values[i]>max) 
+			{
+              	max = values[i];
+            }
+        }
+			
+		//Variable declaration for the second-largets value
+        int secmax = Integer.MIN_VALUE;
+        		
+		//For loop will create iteration while true
+		for (int i = 0;i < values.length;i++) 
+		{
+            		
+		//If statement will test for second maximum value
+		if(values[i]>secmax && values[i] != max) 
+		{
+              secmax = values[i];
+        }
+        
+		}
+		return secmax;//Second-largest value is returned
+		
+	}
+    
+	//Method will return true if the array is currently sorted in increasing order
+	public boolean checkSorted() 
+	{
+        
+		//For loop will create iteration while true
+		for (int i = 1; i < values.length; i++) 
+		{
+            
+			//If statement will test the array order
+			if (values[i - 1] > values[i]) 
+			{
+                	return false;//Returns false if the array is not in increasing order
+            }
+        }
+        return true;//Returns true if the array is in increasing order
+    }
+
+
+	//Method will return true if the array contains two adjacent duplicate elements
+    public boolean checkAdjacent() 
+	{
+        
+		//For loop will create iteration while true
+		for (int i = 1; i < values.length; i++) 
+		{
+            
+			//If statement will test the adjacent array 
+			if (values[i - 1] == values[i]) 
+			{
+               	return true;//Returns true if the adjacent array contains duplicate elements
+            }
+        }
+        return false;//Returns false if the adjacent array does not contains duplicate elements
+   	}
+
+	//Method will return true if the array contains duplicate elements (which need not be adjacent)
+    public boolean checkDuplicate() 
+	{
+        
+		//Java hash function is utilized in order to map keys to values
+		HashSet<Integer> hashSet = new HashSet<Integer>();
+        
+		//For loop will create iteration while true
+		for (int i = 0; i < values.length; i++) 
+		{
+           		
+			//If statement will test the hash value
+			if (hashSet.contains(values[i])) 
+			{
+              	  return true;//Returns true if the array contains duplicate elements
+            }
+            hashSet.add(values[i]);
+        }
+        return false;//Returns false if the array does not contain duplicate elements
+    }
+
+
+	//Method will display array values
+    public void print() 
+	{
+        
+		//For loop will create iteration while true
+		for (int i = 0;i < values.length;i++) 
+		{
+			System.out.print(values[i] + " ");
+        }
+        	System.out.println();
+    }
+	
+	//Main function
+   	public static void main(String[] args) 
+	{
+
+		//Array declaration with initial test values
+        int input[] = new int[]{1, 4, 9, 16, 25};
+
+		//Method call to the swap first and last element function with output 
+        arrayMethods arrayMethods = new arrayMethods(input);
+        System.out.println("Swap the first and last elements in the array: ");
+        System.out.print("Before: ");
+        arrayMethods.print();
+        arrayMethods.swapFirstAndLast();
+        System.out.print("After: ");
+        arrayMethods.print();
+        System.out.println();
+		
+		//Method call to the shift all element to the right function with output 
+        System.out.println("Shift all elements to the right by one and move the last element into the first position: ");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        arrayMethods.shiftRight();
+        System.out.print("After: ");
+        arrayMethods.print();
+       	 System.out.println();
+
+		//Method call to the replace all even elements to zero function with output 
+        System.out.println("Replace all even elements with 0: ");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        arrayMethods.replaceZero();
+        System.out.print("After: ");
+        arrayMethods.print();
+        System.out.println();
+
+		//Method call to the replace by the larger of two neighbors function with output 
+        System.out.println("Replace each element except the first and last by the larger of its two neighbors: ");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        arrayMethods.replaceLarger();
+        System.out.print("After: ");
+        arrayMethods.print();
+        System.out.println();
+
+		//Method call to the remove the middle element function with output 
+        System.out.println("Remove the middle element if the array length is odd, or the middle two elements if the length is even: ");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        arrayMethods.removeMiddle();
+        System.out.print("After: ");
+        arrayMethods.print();
+        System.out.println();
+
+		//Method call to the move all even element function with output 
+        System.out.println("Move all even elements to the front, otherwise preserving the order of the elements: ");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        arrayMethods.moveToFront();
+        System.out.print("After: ");
+        arrayMethods.print();
+        System.out.println();
+
+		//Method call to the return second-largest element function with output 
+        System.out.println("Return the second-largest element in the array: ");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        System.out.println(arrayMethods.secondLargest());
+        System.out.println();
+
+		//Method call to the return true if sorted in order function with output 
+        System.out.println("Return true if the array is currently sorted in increasing order: ");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        System.out.println(arrayMethods.checkSorted());
+        System.out.println();
+
+		//Method call to the return true if two adjacent function with output 
+        System.out.println("Return true if the array contains two adjacent duplicate elements: ");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        System.out.println(arrayMethods.checkAdjacent());
+        System.out.println();
+
+		//Method call to the return true if duplicate function with output 
+        System.out.println("Return true if the array contains duplicate elements: (which need not be adjacent)");
+        input = new int[]{1, 4, 9, 16, 25};
+        arrayMethods = new arrayMethods(input);
+        System.out.print("Before: ");
+        arrayMethods.print();
+        System.out.println(arrayMethods.checkDuplicate());
+    }
+}

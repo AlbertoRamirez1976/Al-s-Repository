@@ -1,0 +1,20 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 8 Assignment				    */
+/* Assignment 8     Program: P10.4                  */
+/* Date: 7/31/21                                    */
+/* This program implements a class 		    */
+/* FirstDigitDistribution which counts the 	    */
+/* distribution of the first digit of each value    */
+/****************************************************/
+package firstDigitDistributionProgram;
+
+//Class will create random values up to the maximum value
+public class RandomSequence implements Sequence
+{
+	public int next()
+	{
+		return (int) (Integer.MAX_VALUE * Math.random());
+	}
+}
