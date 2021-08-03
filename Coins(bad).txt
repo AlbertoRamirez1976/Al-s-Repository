@@ -1,0 +1,3 @@
+coinName1 coinValue1
+coinName2 coinValue2
+coinName3 coinValue3

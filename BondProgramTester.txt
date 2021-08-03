@@ -1,0 +1,69 @@
+/****************************************************/
+/* Name : Alberto Ramirez                           */
+/* Palomar Student ID : 006095053                   */
+/* Week 9 Assignment				    */
+/* Assignment 9     Program: P11.14                 */
+/* Date: 8/2/21                                     */
+/* This program accepts data from one column and    */
+/* returns the corresponding data from the other    */
+/* columns in the stored file			    */
+/****************************************************/
+package bondProgram;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class BondProgramTester
+{
+
+   public static void main(String[] args) throws IOException 
+   {
+       //Scanner function will input file
+       Scanner scan = new Scanner(System.in);
+       
+       //Variable will be assigned the value of the text file
+       //The text file path is: "C:\\Users\\alber\\Desktop\\bonddata.txt";
+       String fileName = "C:\\Users\\alber\\Desktop\\bonddata.txt";
+       String sCurrentLine;
+     
+       //Class object will be assigned the value of the String variable filename which contains the file contents
+       File file = new File(fileName);
+       
+       //If statement will test for file values and return results
+       if(file.exists())
+       {  
+    	   //Output of the search results
+    	   System.out.println("Enter Search item :");
+           
+    	   //String object is assigned the results of the file search
+    	   String searchStr = scan.next();
+       
+    	   //BufferedReader function will temporarily store the results in the memory buffer
+    	   BufferedReader br = new BufferedReader(new FileReader(file));
+    	   
+    	   //While loop will create iterations
+    	   while ((sCurrentLine = br.readLine()) != null) 
+    	   {
+    		   //File values will be stored in an array
+    		   String values[] = sCurrentLine.split("\\s+");
+    		   
+    		   //If statement will test for values and ignore certain character case
+    		   if(searchStr.equalsIgnoreCase(values[0]) || searchStr.equalsIgnoreCase(values[1]) || searchStr.equalsIgnoreCase(values[2])){
+               
+    			//Final output of the search results    
+    			System.out.println("");//Blank line
+    			System.out.println("triple bond "+values[0]+" and bond energy "+values[1]+" kJ/mol and bond length "+values[2]+" nm");
+           }
+       }
+       }
+       else//Else will handle exceptions
+       {
+    	   System.out.println("");//Blank line
+           System.out.println("Input file does not exist");
+       }
+   }
+
+}
