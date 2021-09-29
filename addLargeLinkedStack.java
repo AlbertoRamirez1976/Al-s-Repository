@@ -1,12 +1,9 @@
-/****************************************************/
-/* Name : Alberto Ramirez                           */
-/* Palomar Student ID : 006095053                   */
-/* CSCI 210  Lab 1				                            */	
-/* Date: 9/18/21                                    */
-/* The purpose is to use the dynamic implementation */
-/* of a stack. This Java application will add       */
-/* large numbers			                            */ 
-/****************************************************/
+/**
+ * The addLargeItemLinkedStack<T> class represents a last-in- * first-out (LIFO) stack of generic items. The implementation  * uses a singly linked list with a non-static nested class for  * linked-list nodes. 
+ * 
+ * @author Alberto E. Ramirez
+ * @version 9/28/2021
+ */
 
 public class addLargeLinkedStack<T> implements addLargeStackInterface<T>
 {
@@ -25,7 +22,7 @@ public class addLargeLinkedStack<T> implements addLargeStackInterface<T>
         if (!isEmpty())
             item.setNext(top);
 
-        top = item;// variale represents the top of the stack
+        top = item;// variable represents the top of the stack
     }
 
     // method will pop items from the stack

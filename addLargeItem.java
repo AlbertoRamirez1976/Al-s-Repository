@@ -1,18 +1,15 @@
-/****************************************************/
-/* Name : Alberto Ramirez                           */
-/* Palomar Student ID : 006095053                   */
-/* CSCI 210  Lab 1				                            */	
-/* Date: 9/18/21                                    */
-/* The purpose is to use the dynamic implementation */
-/* of a stack. This Java application will add       */
-/* large numbers			                            */ 
-/****************************************************/
+/**
+ * The addLargeItem class is a generic class that is  * parameterized over a non-primitive type "<T>". All  * occurences of the  * object are replaced by the "<T>" type  * parametr value.  
+ * 
+ * @author Alberto E. Ramirez
+ * @version 9/28/2021
+ */
 
 // class will add items
 public class addLargeItem<T>
 {
     // variable declaration
-    protected T info;
+    protected T info;// variable "item" of the non-primitive     type is declared.
     protected addLargeItem<T> next;
 
     // method adds items
@@ -24,12 +21,12 @@ public class addLargeItem<T>
 
     public addLargeItem(T info)
     {
-        this.info = info;
+        this.info = info;// the "this" keyword is a reference          to the current object.
         next = null;// variable is assigned a null value
     }
 
     public void setNext(addLargeItem<T> i)
     {
-        next = i;// varibale is assigned the value of i
+        next = i;// variable is assigned the value of i
     }
 }
