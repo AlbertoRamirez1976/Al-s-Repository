@@ -25,7 +25,8 @@ public class Tester
             q.insert(ch);
 
         //test the new QueueOverflow exception
-        try {
+        try 
+        {
             q.insert('!');
         }
         catch (QueueOverflowException overflow) {
