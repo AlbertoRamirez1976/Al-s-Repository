@@ -1,24 +1,17 @@
-/**
- * The Circular Array class implements a queue using a circular array 
- * 
- * @author Alberto E. Ramirez
- * @version 10/3/2021
- */
-
-public class Item<T>
+public class Item
 {
-    protected T info;
-    protected Item<T> next;
+    protected int info;
+    protected Item next;
 
     public Item()
     {
-        info = null;
+        info = 0;
         next = null;
     }
 
-    public Item(T info)
+    public Item(int i)
     {
-        this.info = info;
+        info = i;
         next = null;
     }
 }

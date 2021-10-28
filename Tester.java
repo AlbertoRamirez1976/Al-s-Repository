@@ -1,45 +1,26 @@
-/**
- * The Circular Array class implements a queue using a circular array 
- * 
- * @author Alberto E. Ramirez
- * @version 10/3/2021
- */
-
 public class Tester
 {
     public static void main()
     {
-        QueueInterface<Character> q = new ArrayQueue<Character>();
+        int a[] = {1, 2, 3, 4};
+        List list1 = new List(a);
 
-        //insert into the queue, with wrapping
-        for (Character ch = 'a'; ch <= 'h'; ++ch)
-            q.insert(ch);
+        int b[] = {6, 5, 4, 3};
+        List list2 = new List(b);
 
-        //remove the first 5 items, with wrapping
-        for (int i = 1; i <= 5; ++i)
-            System.out.print(q.remove());
-        System.out.println();
+        list1.insertLast(5);
+        System.out.println("insertLast() gives: " + list1.toString());
 
-        //now fill the queue
-        for (Character ch = 'A'; ch <= 'F'; ++ch)
-            q.insert(ch);
+        list2.removeLast();
+        System.out.println("removeLast() gives: " + list2.toString());
 
-        //test the new QueueOverflow exception
-        try 
-        {
-            q.insert('!');
-        }
-        catch (QueueOverflowException overflow) {
-        System.out.println("Exception: " + overflow.getMessage());
-        System.err.println("Exception: " + overflow.getMessage());
-        //System.exit();
-        }
+        List result = list2.copy();
+        System.out.println("copy() gives: " + result.toString());
 
-        //empty the queue
-        while (!q.isEmpty())
-            System.out.print(q.remove());
-        System.out.println();
+        result = result.join(list2);
+        System.out.println("join() gives: " + result.toString());
 
-        System.out.println("done");
+        result = list1.intersect(list2);
+        System.out.println("intersect() gives: " + result.toString());
     }
 }
