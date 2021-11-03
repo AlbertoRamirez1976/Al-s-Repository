@@ -1,44 +1,38 @@
 /**
- * BankAccount class will supply object classes
+ * Bank Account class
  *
  * @author Alberto E Ramirez
- * @version 9-17-21
+ * @version 11-2-2021
  */
-public class BankAccount
+public class BankAccount 
 {
-   	// instance variable declaration
-        private double balance;
-	
-	// constructor constructs a BankAccount class object with a zero balance
-	public BankAccount()
-	{
-		balance = 0;
-	}
-	
-	// method will deposit money into the bank account
-	// @param amount will deposit an amount
-	public void deposit(double amount)
-	{
-		System.out.print("After depositing $" + amount);
-		double newBalance = balance + amount;
-		System.out.println(", the new balance is $" + newBalance);
-		balance = newBalance;
-	}
-	
-	// method will withdraw money into the bank account
-	// @param amount will be the amount to withdraw
-	public void withdraw(double amount)
-	{
-		System.out.print("After withdrawing $" + amount);
-		double newBalance = balance - amount;
-		System.out.println(", the new balance is $" + newBalance);
-		balance = newBalance;
-	}
-	
-	// method will acquire the current balance
-	// @param return will return the current balance
-	public double getBalance()
-	{
-		return balance;
-	}
+   // variable declaration to protected in order to allow access by child class
+   protected double balance;
+  
+   public BankAccount()
+   {
+       balance = 0;
+   }
+  
+   public BankAccount(double initialBalance)
+   {
+       balance = initialBalance;
+   }
+  
+   public void deposit(double amount)
+   {
+       double newBalance = balance + amount;
+       balance = newBalance;
+   }
+  
+   public void withdraw(double amount)
+   {
+       double newBalance = balance - amount;
+       balance = newBalance;
+   }
+  
+   public double getBalance()
+   {
+       return balance;
+   }
 }
