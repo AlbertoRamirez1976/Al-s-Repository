@@ -1,0 +1,25 @@
+// CSCI_222 Assignment 1_P1.2 by Alberto E. Ramirez //
+
+#include <iostream> // C++ standard library header that defines the standard input/output stream objects
+#include <string> // C++ standard library header that handles all char-like template arguments.
+#include <stdlib.h> // C++ standard library header that defines several general purpose functions, including dynamic memory management
+
+using namespace std;//mechanism for avoiding naming conflicst in larger programs
+
+int main()
+{
+
+	string user_name; // string data type is used in order to capture character-like arguments
+
+	cout << "Hello, my name is Hal!" << endl;// the program starts by priting the initial prompt message
+
+	cout << "What is your name? " << endl;// then on a new line the program continues with a user prompt message
+
+	getline(cin, user_name); // captures user's input
+
+	system("color 9"); // the function will color the user's input to "blue"
+
+	cout << "Hello, " << user_name <<".  I am glad to meet you!" << endl; // output of the user's input in blue
+
+	return 0;
+}

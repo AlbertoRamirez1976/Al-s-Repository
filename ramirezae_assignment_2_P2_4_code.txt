@@ -1,0 +1,41 @@
+// CSCI_222 Assignment 2_P2_4 by Alberto E. Ramirez //
+
+#include <iostream> // C++ standard library header that defines the standard input/output stream objects
+#include <string> // C++ standard library header that handles all char-like template arguments.
+#include <stdlib.h> // C++ standard library header that defines several general purpose functions, including dynamic memory management
+
+using namespace std;//mechanism for avoiding naming conflicst in larger programs
+
+int main()
+{
+	// variable declaration
+	int cost_of_new_car;// variable declaration as an integer for the variable named cost_of_new_car
+	int miles_driven_per_year;// variable declaration as an integer for the variable named miles_driven_per_year
+	int resale_after_five_years;// variable declaration as an integer for the variable named resale_after_five_years
+	double estimated_gas_price;// variable declaration as a double for the variable named estimated_gas_price
+	
+	//user input prompt for the value of new car
+	cout << "Enter cost of a new car: $";
+	cin >> cost_of_new_car;// user input will be stored in the variable cost_of_new_car
+
+	//user input prompt for the value of miles driven per year
+	cout << "Miles driven per year: ";
+	cin >> miles_driven_per_year;// user input will be stored in the variable miles_driven_per_year
+
+	//user input prompt for the value of estimated gas price
+	cout << "Estimated gas price: $";
+	cin >> estimated_gas_price;// user input will be stored in the variable estimated_gas_price
+
+	//user input prompt for the value of resale value of car after five years
+	cout << "Resale value of car after five years: $";
+	cin >> resale_after_five_years;// user input will be stored in the variable resale_after_five_years
+
+	// calculatios as a double for the cost of driving which will multiply 5 times the number of miles driven per year * gas prices
+	double cost_of_driving = 5 * miles_driven_per_year * estimated_gas_price;
+
+	// calculation as a double for the total cost for five years by adding the cost of driving with the cost of a new car minus the resale value after five years
+	double total_cost_for_five_years = cost_of_driving + cost_of_new_car - resale_after_five_years;
+
+	cout << "Total cost of owning car for 5 years: $" << total_cost_for_five_years << endl;// final output
+
+}

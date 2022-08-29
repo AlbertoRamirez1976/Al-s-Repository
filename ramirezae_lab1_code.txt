@@ -1,0 +1,55 @@
+// CSCI_222 Lab 1_P3.15 by Alberto E. Ramirez //
+
+#include <iostream> // C++ standard library header that defines the standard input/output stream objects
+#include <string> // C++ standard library header that handles all char-like template arguments.
+#include <stdlib.h> // C++ standard library header that defines several general purpose functions, including dynamic memory management
+
+using namespace std;//mechanism for avoiding naming conflicst in larger programs
+
+int main()
+{
+
+    // variable declaration
+    string countryName;// variable countryName is declared as a String variable
+    string modifiedCountryName;// variable modifiedCountryName is declared as a String variable
+
+    // user input prompt for the French Country name
+    cout << "Enter French Country Name: ";
+    cin >> countryName;// user input will be stored in the variable countryName
+
+    // if/else loop function will check for the countryName in order to test for the following values: Etats-Unis or Pays-Bas
+    // the variable modifiedCountryName will be modified with the appropriate prefix
+    if ((countryName == "Etats-Unis") || (countryName == "Pays-Bas"))
+        modifiedCountryName = "les " + countryName;
+
+    // if/else loop function will test the 1st character and then convert it to lowercase in the form of a,e,i,o,u
+    // the variable modifiedCountryName will be modified with the appropriate prefix
+    else if (tolower(countryName[0]) == 'a' ||
+        tolower(countryName[0]) == 'e' ||
+        tolower(countryName[0]) == 'i' ||
+        tolower(countryName[0]) == 'o' ||
+        tolower(countryName[0]) == 'u')
+        modifiedCountryName = "l'" + countryName;
+
+    // if/else loop function will test the countries in order to see if they are listed below
+    // the variable modifiedCountryName will be modified with the appropriate prefix       
+    else if ((countryName == "Belize") ||
+        (countryName == "Cambodge") ||
+        (countryName == "Mexique") ||
+        (countryName == "Mozambique") ||
+        (countryName == "Zaire") ||
+        (countryName == "Zimbabwe"))
+        modifiedCountryName = "le " + countryName;
+
+    // if/else loop function will test the last character in order to see if it is e
+    // the variable modifiedCountryName will be modified with the appropriate prefix          
+    else if (tolower(countryName[countryName.length() - 1]) == 'e')
+        modifiedCountryName = "la " + countryName;
+    else
+        //for all others the prefix le' will be used and stored in the variable modifiedCountryName      
+        modifiedCountryName = "le " + countryName;
+
+    cout << modifiedCountryName;// final output
+
+    return 0;
+}
