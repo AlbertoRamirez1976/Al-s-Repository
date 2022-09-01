@@ -1,0 +1,107 @@
+// CSCI_222 Assignment 3_P5.18 ("Postal Bar Codes") by Alberto E. Ramirez //
+
+#include <iostream> // C++ standard library header that defines the standard input/output stream objects
+#include <string> // C++ standard library header that handles all char-like template arguments.
+
+using namespace std;//mechanism for avoiding naming conflicst in larger programs
+
+int main()
+{
+	// variable declaration
+	int zipcode;// variable declaration as an integer.
+	int sum = 0;// variable declaration as an integer and initialize with a zero value.
+
+	// user prompt messgae asking for the zip code
+	cout << "Enter the zip code";
+
+	// user input will capture and stored in the variable zip code
+	cin >> zipcode;
+
+	// array declaration to an integer value and of size 5
+	int a[5];
+
+	// array initialization of the first element to a value corresponding to a place value as part of a five digit size
+	a[0] = zipcode / 10000;
+	zipcode = zipcode % 10000;
+
+	// array initialization of the second element to a value corresponding to a place value as part of a five digit size
+	a[1] = zipcode / 1000;
+	zipcode = zipcode % 1000;
+
+	// array initialization of the third element to a value corresponding to a place value as part of a five digit size
+	a[2] = zipcode / 100;
+	zipcode = zipcode % 100;
+
+	// array initialization of the fourth element to a value corresponding to a place value as part of a five digit size
+	a[3] = zipcode / 10;
+
+	// array initialization of the fifth element to a value corresponding to a place value as part of a five digit size
+	a[4] = zipcode % 10;
+
+	// array declaration as an integer value and of a colum size of 10 and row size of 5.
+	int arr[10][5] = 
+		{
+			{1,1,0,0,0},
+			{0,0,0,1,1},
+			{0,0,1,0,1},
+			{0,0,1,1,0},
+			{0,1,0,0,1},
+			{0,1,0,1,0},
+			{0,1,1,0,0},
+			{1,0,0,0,1},
+			{1,0,0,1,0},
+			{1,0,1,0,0}
+	};
+
+	// for loop will continue to loop while the conditions are met
+	for (int i = 0; i < 5; i++) 
+	{
+		int k = a[i];// the k variable will be declared as an integer variable with the value of the indexed array.
+		sum += k;// the sum variable will be initialized with the incremented value of the variable k.
+	}
+
+	int remain = sum % 10;// the remain variable will be declared an an integer variable and initialized with the value of the remainder of sum
+
+	sum = 10 - remain;// the sum variable will be initialized with the value of remain minus 10 in order to make it a multiple of 10
+
+
+	cout << endl;
+
+
+	cout << "The barcode for the given zipcode is: " << endl;// output message
+
+	cout << "|";// prints the output with vertical bar code bars
+
+	// for loop will continue to loop while the conditions are met
+	for (int i = 0; i < 5; i++) 
+	{
+		int q = a[i];
+		for (int j = 0; j < 5; j++) 
+		{
+			// inner if loop will continue to loop 
+			if (arr[q][j] == 0) 
+			{
+				cout << ":";// prints the output the in-between semicolon for the vertical bar code bars
+			}
+			else 
+			{
+				cout << "|";// prints the output with vertical bar code bars
+			}
+		}
+	}
+
+	// for loop will continue to loop while the conditions are met
+	for (int i = 0; i < 5; i++) 
+	{
+		if (arr[sum][i] == 0) 
+		{
+			cout << ":";// prints the output the in-between semicolon for the vertical bar code bars
+		}
+		else 
+		{
+			cout << "|";// prints the output with vertical bar code bars
+		}
+	}
+	cout << "|";// prints the output with vertical bar code bars
+	return 0;
+}

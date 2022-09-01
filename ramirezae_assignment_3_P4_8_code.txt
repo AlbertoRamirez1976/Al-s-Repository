@@ -1,0 +1,145 @@
+// CSCI_222 Assignment 3_P4.8 ("The Game of Nin") by Alberto E. Ramirez //
+
+#include <iostream> // C++ standard library header that defines the standard input/output stream objects
+#include <stdio.h> // C++ standard library header that defines the standard input/output objects
+#include <string> // C++ standard library header that handles all char-like template arguments.
+#include <stdlib.h> // C++ standard library header that defines several general purpose functions, including random function
+#include <time.h> // C++ standard library header that defines the time functions
+
+using namespace std;//mechanism for avoiding naming conflicst in larger programs
+
+int main()
+{
+
+	// random function seeded with the current time
+	srand((unsigned)time(NULL));
+
+	// variable declaration
+	int sizeOfPile = (rand() % (100 - 10 + 1)) + 10;// variable declaration as an integer and named sizeOfPile. It will capure a random size for a pile between 10 - 100.
+	int turn = rand() % 2;// variable declaration as an integer and named turne. It will alternate play turn between the human and computer (0 or 1 value).
+	int smartDumb = rand() % 2;// variable declaration as an integer and named smartDumb. It will alternate play for the computer between smart and dumb play (0 or 1 value).
+		
+	// while loop function will continue play while the condition sizeOfPile is not equal to zero. If the variable sizeOfPile reaches a zero value, the game will end.
+	while (sizeOfPile != 0)
+	{
+
+		cout << "The Size of Pile is " << sizeOfPile << endl;// standard message prompt for the size of the pile
+
+		// if function will execute if turn value equals to zero (computer).
+		if (turn == 0)
+		{
+
+			cout << "Enter how many marbles to take " << endl;// standard message prompt for the number of marbles to take from the pile. It will ask the user to enter an amount.
+
+			// local variable declaration as an integer and named marbles. It will store the user's input value for marbles.
+			int marbles;
+
+			// user's input for marbles will be captured and stored in the variable marbles.
+			cin >> marbles;
+
+			sizeOfPile -= marbles;//  marble value will be decremented or removed from the pile
+
+			cout << "Removed " << marbles << " marbles from pile" << endl;// output message with the number of marbles removed
+
+			turn = turn + 1;// turn variable will provide the computer with a turn, thus incrementing the turn variable by one and redeclaring the turn variable
+		}
+
+		// else if function will execute if turn value equals to one (human).
+		else if (turn == 1)
+		{
+			// if function will execute if smartDunmb value equals to one if the computer is playing dumb.
+			if (smartDumb == 0)
+			{
+				// variable declaration to an integer value for the marble variable. It will be assign the value of the seededed random function between 1 to half of the current pile size.
+				int marbles = (rand() % (sizeOfPile / 2)) + 1;
+
+				cout << "Removed " << marbles << " marbles from pile" << endl;// output message with the number of marbles removed
+
+				sizeOfPile -= marbles;//  marble value will be decremented or removed from the pile
+			}
+
+			// else if function will execute if smartDunmb value equals to one if the computer is playing smart.
+			else if (smartDumb == 1)
+			{
+
+				// local variable declaration as an integer and named marbles. It will store the user's input value for marbles.
+				int marbles;
+
+				// if function will execute if the sizeOfPile value is greater than 63.
+				if (sizeOfPile > 63)
+				{
+
+					marbles = sizeOfPile - 63;// the variable marble will be assigned the value of sizeOfPile minus 63.
+
+				}
+				// else if function will execute if the sizeOfPile value is greater than 31
+				else if (sizeOfPile > 31)
+				{
+
+					marbles = sizeOfPile - 31;// the variable marble will be assigned the value of sizeOfPile minus 31. 
+
+				}
+
+				// else if function will execute if the sizeOfPile value is greater than 15
+				else if (sizeOfPile > 15)
+				{
+
+					marbles = sizeOfPile - 15;// the variable marble will be assigned the value of sizeOfPile minus 15. 
+
+				}
+
+				// else if function will execute if the sizeOfPile value is greater than 7
+				else if (sizeOfPile > 7)
+				{
+
+					marbles = sizeOfPile - 7;// the variable marble will be assigned the value of sizeOfPile minus 7. 
+
+				}
+
+				// else if function will execute if the sizeOfPile value is greater than 3
+				else if (sizeOfPile > 3)
+				{
+
+					marbles = sizeOfPile - 3;// the variable marble will be assigned the value of sizeOfPile minus 3. 
+
+				}
+
+				// keep removing 1 if pile size is less than 3
+				// the default else function will execute if all the previous if/else statements are not executed
+				else
+				{
+
+					marbles = 1;// the variable marble will be assigned the value of 1. 
+
+				}
+
+				cout << "Removed " << marbles << " marbles from pile" << endl;// output message with the number of marbles removed
+
+				sizeOfPile -= marbles;//  marble value will be decremented or removed from the pile
+
+			}
+
+			// turn variable will provide the human with a turn, thus deccrementing the turn variable by one and redeclaring the turn variable
+			turn = turn - 1;
+
+		}
+
+	}
+
+	// if function will execute if the turn value is equal to zero (human). If this is the case then it will mean that the human player has won the game.
+	if (turn == 0)
+	{
+
+		cout << "Player won" << endl;// output message with the announcement that the human player has won the game.
+
+	}
+
+	// else if function will execute if the turn value is equal to 1 (computer). If this is the case then it will mean that the computer has won the game.
+	else if (turn == 1)
+
+	{
+
+		cout << "Computer Won" << endl;// output message with the announcement that the computer has won the game.
+
+	}
+}
